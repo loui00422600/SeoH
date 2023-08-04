@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Moirai+One&display=swap" rel="stylesheet">
+
+    <style>
+        .header img {
+            border-radius: 25px;
+            border: 4px solid;
+            border-color: red blue greenyellow yellow;
+        }
+
+        .header a {
+            text-decoration: none;
+            color: black;
+            margin-right: 10px;
+        }
+
+        .header a:hover {
+            text-decoration: underline;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: end;
+        }
+
+        .logo {
+            height: 350px;
+            text-align: center;
+        }
+
+        .logo img {
+            width: 800px;
+        }
+
+        .textbox {
+            height: 100px;
+            text-align: center;
+        }
+
+        .textbox input {
+            width: 700px;
+            height: 30px;
+            border: 0;
+            border-radius: 15px;
+
+            box-shadow: 0px 0px 7px 3px gray;
+
+            padding-left: 10px;
+        }
+
+        .bottom {
+            height: 400px;
+        }
+
+        .site-box {
+            width: 700px;
+            /* 부모의 높이 적용 */
+            height: 100%;
+            margin: auto;
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .site-box>div:hover {
+            background-color: gainsboro;
+        }
+
+        .site-box img {
+            width: 80px;
+            height: 80px;
+            border-radius: 80px;
+            border: 1px solid;
+        }
+
+        .site-box>div {
+            width: 137.51px;
+            height: 150px;
+
+            display: flex;
+            /* 정렬 방향을 수직으로 변경 */
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .bot {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+
+            padding-right: 12px;
+            padding-left: 12px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+
+
+            border-radius: 20px;
+            box-shadow: 0 0 5px 4px gainsboro;
+
+            color: dodgerblue;
+        }
+
+        .bot:hover {
+            background-color: #f3f3f3;
+        }
+
+        .site-box>a {
+            width: 137.51px;
+            height: 150px;
+
+            display: flex;
+            /* 정렬 방향을 수직으로 변경 */
+            flex-direction: column;
+            align-items: center;
+
+            text-decoration: none;
+        }
+
+        .site-box>a:hover {
+            background-color: gainsboro;
+        }
+
+        .site-box>a>p {
+            color: black;
+        }
+
+        .site-box p{
+            margin: 5px;
+            /* 글자 크기 조정 */
+            font-size: 30px;
+            /* 폰트 설정 */
+            /* 영문 폰트는 한글 글씨체가 없을 수 있다. */
+            /* 폰트명에 공백이 포함되어 있으면 작은 따옴표나 큰 따옴표로 둘러싸준다. */
+            /* 폰트명을 여러개 적어놓으면 왼쪽부터 차례대로 */
+            /* 폰트가 적용되는데, 예를 들어 첫번째 폰트가 적용이 잘 되었다면 */
+            /* 이후 폰트는 무시한다. */
+            /* 구글 폰ㅌ트 검색 */
+            font-family:'Moirai One', cursive;;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="">Gmail</a>
+            <a href="">이미지</a>
+            <img width="50px" height="50" src="../resources/images/favicon-96x96.png" alt="">
+        </div>
+        <div class="logo">
+            <img src="https://www.google.com/logos/doodles/2023/2023-womens-world-cup-aug-03-6753651837110066-law.gif"
+                alt="">
+        </div>
+        <div class="textbox">
+            <input type="text" placeholder="Google 검색 또는 URL 입력">
+        </div>
+        <div class="bottom">
+            <div class="site-box">
+                <a href="https://www.naver.com">
+                    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5746%2F2022%2F01%2F29%2F0000083675_002_20220129130403526.png&type=sc960_832"
+                        alt="">
+                    <p>네이버</p>
+                </a>
+                <a href="https://www.kakao.com">
+                    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5746%2F2022%2F01%2F29%2F0000083675_002_20220129130403526.png&type=sc960_832"
+                        alt="">
+                    <p>카카오</p>
+                </a>
+                <a href="http://www.daum.net">
+                    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5746%2F2022%2F01%2F29%2F0000083675_002_20220129130403526.png&type=sc960_832"
+                        alt="">
+                    <p>다음</p>
+                </a>
+                <a>
+                    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5746%2F2022%2F01%2F29%2F0000083675_002_20220129130403526.png&type=sc960_832"
+                        alt="">
+                    <p>다음</p>
+                </a>
+                <a>
+                    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5746%2F2022%2F01%2F29%2F0000083675_002_20220129130403526.png&type=sc960_832"
+                        alt="">
+                    <p>다음</p>
+                </a>
+                <a>
+                    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5746%2F2022%2F01%2F29%2F0000083675_002_20220129130403526.png&type=sc960_832"
+                        alt="">
+                    <p>다음</p>
+                </a>
+                <a>
+                    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5746%2F2022%2F01%2F29%2F0000083675_002_20220129130403526.png&type=sc960_832"
+                        alt="">
+                    <p>다음</p>
+                </a>
+                <a>
+                    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5746%2F2022%2F01%2F29%2F0000083675_002_20220129130403526.png&type=sc960_832"
+                        alt="">
+                    <p>다음</p>
+                </a>
+                <a>
+                    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5746%2F2022%2F01%2F29%2F0000083675_002_20220129130403526.png&type=sc960_832"
+                        alt="">
+                    <p>다음</p>
+                </a>
+                <a>
+                    <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5746%2F2022%2F01%2F29%2F0000083675_002_20220129130403526.png&type=sc960_832"
+                        alt="">
+                    <p>다음</p>
+                </a>
+            </div>
+        </div>
+        <div class="bot">Chrom 맟춤 설정
+        </div>
+    </div>
+
+</body>
+
+</html>

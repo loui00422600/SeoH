@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>overflow</title>
+
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            border: 2px solid;
+            margin-bottom: 200px;
+        }
+        img{
+            width: 400px;
+        }
+        /* 벗어나는 영역에 대해 스크롤 생성 */
+        .overflow-scroll{
+            overflow:scroll;
+        }
+        /* 벗어나는 영역을 보이지 않게 함 */
+        .overflow-hidden{
+            overflow: hidden;
+        }
+        /* 중앙 정렬을 해주면 hidden을 넣어도 긋*/
+        .d-flex-center{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .profile{
+            width:200px;
+            height: 200px;
+            border-radius: 100px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile img{
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="https://item.kakaocdn.net/do/3eb315a67c065037108e52ed8c803f509f5287469802eca457586a25a096fd31" alt="">
+    </div>
+    <div class="overflow-scroll">
+        <img src="https://item.kakaocdn.net/do/3eb315a67c065037108e52ed8c803f509f5287469802eca457586a25a096fd31" alt="">
+    </div>
+    <div class="overflow-hidden">
+        <img src="https://item.kakaocdn.net/do/3eb315a67c065037108e52ed8c803f509f5287469802eca457586a25a096fd31" alt="">
+    </div>
+    <div class="overflow-hidden d-flex-center">
+        <img src="https://item.kakaocdn.net/do/3eb315a67c065037108e52ed8c803f509f5287469802eca457586a25a096fd31" alt="">
+    </div>
+
+    <div class="profile">
+        <img src="https://item.kakaocdn.net/do/3eb315a67c065037108e52ed8c803f509f5287469802eca457586a25a096fd31" alt="">
+    </div>
+</body>
+</html>
