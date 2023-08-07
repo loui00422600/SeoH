@@ -6,58 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SeoHee</title>
     <style>
-  
+        div {
+            border: 1px solid red;
+        }
 
-        .contaniner{
+        .contaniner {
             width: 1200px;
             margin: auto;
             background-color: black;
         }
 
         .top {
+            width: 1200px;
             height: 80px;
             display: flex;
             align-items: center;
+            position: fixed;
+            background-color: black;
+
         }
 
-        .top1{
+        .top1 {
+            margin-left: 30px;
             display: flex;
             justify-content: start;
-            color: orange
-        }
-
-        .top1 a{
-            margin-left: 50px;
             color: orange;
         }
 
-        .top2{
+        .top1 h2 {
+            color: orange;
+        }
+
+        .top2 {
             text-align: center;
             margin: auto;
         }
 
-        .top2 a{
+        .top2 a {
             margin-left: 30px;
             margin-right: 30px;
             color: white;
-            
         }
 
-        .top3{
+        .top3 {
             width: 150px;
             height: 30px;
             border-radius: 30px;
             background-color: orange;
             display: flex;
             font-size: 15px;
-            margin-right:50px ;
+            margin-right: 50px;
             display: flex;
             text-align: center;
             align-items: center;
             justify-content: center;
-            
         }
-        .top3 a{
+
+        .top3:hover {
+            background-color: rgba(255, 166, 0, 0.616);
+        }
+
+        .top3 a {
             color: black;
         }
 
@@ -68,29 +77,27 @@
         .middle {
             height: 450px;
             margin: auto;
-            
             display: flex;
             flex-wrap: wrap;
         }
 
-        .photo{
-            margin-top: 50px;
-            margin-left: 50px;
+        .photo {
+
+            margin-top: 80px;
+            margin-left: 100px;
             width: 400px;
             height: 350px;
         }
 
-        .G1{
-            margin-left: 80px ;
-            margin-top: 60px;
+        .G1 {
+
+            margin-top: 120px;
             width: 600px;
             height: 300px;
-            
-
         }
 
-        .G1_1{
-            margin-left: 200px ;
+        .G1_1 {
+            margin-left: 200px;
             margin-top: 80px;
             width: 200px;
             height: 50px;
@@ -99,20 +106,19 @@
             align-items: center;
         }
 
-        .G1_1 p{
+        .G1_1 p {
             font-size: 30px;
             color: orange;
         }
-        
 
-        .G1_2 p{
+        .G1_2 p {
             font-size: 15px;
-            color:white
+            color: white
         }
 
-        .G1_2{
+        .G1_2 {
             margin-top: 10px;
-            margin-left: 150px ;
+            margin-left: 150px;
             width: 300px;
             height: 80px;
             display: flex;
@@ -121,10 +127,8 @@
             display: flex;
         }
 
-
-        .photo img{
+        .photo img {
             margin-top: 50px;
-            margin-left: 50px;
             height: 300px;
             display: flex;
             justify-content: center;
@@ -132,56 +136,57 @@
             width: 400px;
         }
 
-        .list{
-            margin-top: 200px;
+        .list {
+
             width: 1200px;
-            height: 600px;
+            height: 800px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .Hlist{
-            border:1px solid orange;
-            margin-bottom: 200px;
+        .Hlist {
+            border: 1px solid orange;
             background-color: white;
             width: 1000px;
             height: 800px;
             display: flex;
             flex-wrap: wrap;
-            justify-content:space-evenly;
-           
+            justify-content: space-evenly;
         }
 
-        .menu1{
-            margin-top: 80px;
+        .Hlist>div {
+            margin-top: 30px;
+            width: 280px;
+            height: 300px;
+        }
+
+        .menu1 {
             width: calc(1000px / 3 - 50px);
             height: 300px;
             border: 0;
             box-shadow: 1px 1px 4px 1px gray;
             border-radius: 20px;
             overflow: hidden;
-            margin-bottom: 5px;
         }
 
-        .menu1 img{
+        .menu1 img {
             margin: auto;
             padding-top: 10px;
             width: 200px;
             height: 150px;
             display: flex;
-
         }
 
-        .menu1 p{
-            padding-top: 10px ;
+        .menu1 p {
+            padding-top: 10px;
             text-align: center;
             font-size: 20px;
         }
 
-        .Hlist_name{
+        .Hlist_name {
             margin: auto;
-            border:1px solid black;
+            border: 1px solid black;
             width: 300px;
             height: 40px;
             display: flex;
@@ -190,64 +195,63 @@
             text-align: center;
         }
 
-        .Hlist_name p{
-           color: orange;
-           font-size: 20px;
+        .Hlist_name p {
+            color: orange;
+            font-size: 20px;
         }
 
-        .final{
+        .final {
             background-color: black;
             width: 1200px;
-            height: 200px;
+            height: 500px;
             display: flex;
             align-items: center;
             justify-content: end;
         }
 
-        .adress{
-            margin-right: 100px ;
-            width: 400px;
-            height: 200px;
-            background-color: darkolivegreen;
+        .adress {
+            margin-right: 100px;
+            width: 410px;
+            height: 400px;
+            background-color: gray;
         }
-        .adress1{
-            width: 400px;
-            height: 150px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-        }
-        .phone{
-            width: 400px;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
 
+        .adress1 {
+            margin-left: 10px;
+            width: 400px;
+            height: 130px;
+            font-size: 20px;
+            color: white;
+        }
+
+        .phone {
+            width: 400px;
+            height: 100px;
+            font-size: 15px;
+            color: white;
         }
     </style>
 </head>
 <div class="contaniner">
     <div class="top">
         <div class="top1">
-            <a href=""><h2>햄버거</h2></a>
+            <a href="">
+                <h2>햄버거</h2>
+            </a>
         </div>
         <div class="top2">
-            <a href="">home</a>
-            <a href="">메뉴</a>
-            <a href="">매장찾기</a>
+            <a href="#middle">home</a>
+            <a href="#Hlist">메뉴</a>
+            <a href="#final">매장찾기</a>
         </div>
         <div class="top3">
             <a href="">로그인/회원가입</a>
         </div>
     </div>
-    <div class=middle>
+    <div class=middle id="middle">
         <div class="photo">
-        <img src="https://i.namu.wiki/i/iIpTJElgm53K4gMqZSg0nVLNrFm8FC2tB4LjOQxsW46BPYPtCQzIcjwLhfp_JYY-8hMbh_B3Cyv-C51VJ65Owg.webp" alt="">
+            <img src="https://i.namu.wiki/i/iIpTJElgm53K4gMqZSg0nVLNrFm8FC2tB4LjOQxsW46BPYPtCQzIcjwLhfp_JYY-8hMbh_B3Cyv-C51VJ65Owg.webp"
+                alt="">
         </div>
         <div class="G1">
             <div class="G1_1">
@@ -256,66 +260,99 @@
             <div class="G1_2">
                 <p>
                     둘이 먹다가 하나 죽어도 모르는 맞나?<br>
-                    이게맞다
+                    이게맞다<br>
+                    맛있겠다
                 </p>
             </div>
         </div>
     </div>
+    <div style="height: 100px;" id="Hlist"></div>
     <div class="list">
         <div class="Hlist">
+
             <div>
                 <div class="menu1">
-                    <img src="https://i.namu.wiki/i/iIpTJElgm53K4gMqZSg0nVLNrFm8FC2tB4LjOQxsW46BPYPtCQzIcjwLhfp_JYY-8hMbh_B3Cyv-C51VJ65Owg.webp" alt="">
-                    <p>새우버거</p>
+                    <img src="https://i.namu.wiki/i/iIpTJElgm53K4gMqZSg0nVLNrFm8FC2tB4LjOQxsW46BPYPtCQzIcjwLhfp_JYY-8hMbh_B3Cyv-C51VJ65Owg.webp"
+                        alt="">
+                    <h2 style="text-align: center;">새우버거</h2>
                     <p>10000원</p>
                 </div>
             </div>
             <div>
                 <div class="menu1">
-                    <img src="https://i.namu.wiki/i/iIpTJElgm53K4gMqZSg0nVLNrFm8FC2tB4LjOQxsW46BPYPtCQzIcjwLhfp_JYY-8hMbh_B3Cyv-C51VJ65Owg.webp" alt="">
-                    <p>새우버거</p>
+                    <img src="https://i.namu.wiki/i/iIpTJElgm53K4gMqZSg0nVLNrFm8FC2tB4LjOQxsW46BPYPtCQzIcjwLhfp_JYY-8hMbh_B3Cyv-C51VJ65Owg.webp"
+                        alt="">
+                    <h2 style="text-align: center;">새우버거</h2>
                     <p>10000원</p>
                 </div>
             </div>
             <div>
                 <div class="menu1">
-                    <img src="https://i.namu.wiki/i/iIpTJElgm53K4gMqZSg0nVLNrFm8FC2tB4LjOQxsW46BPYPtCQzIcjwLhfp_JYY-8hMbh_B3Cyv-C51VJ65Owg.webp" alt="">
-                    <p>새우버거</p>
+                    <img src="https://i.namu.wiki/i/iIpTJElgm53K4gMqZSg0nVLNrFm8FC2tB4LjOQxsW46BPYPtCQzIcjwLhfp_JYY-8hMbh_B3Cyv-C51VJ65Owg.webp"
+                        alt="">
+                    <h2 style="text-align: center;">새우버거</h2>
                     <p>10000원</p>
                 </div>
             </div>
             <div>
                 <div class="menu1">
-                    <img src="https://i.namu.wiki/i/iIpTJElgm53K4gMqZSg0nVLNrFm8FC2tB4LjOQxsW46BPYPtCQzIcjwLhfp_JYY-8hMbh_B3Cyv-C51VJ65Owg.webp" alt="">
-                    <p>새우버거</p>
+                    <img src="https://i.namu.wiki/i/iIpTJElgm53K4gMqZSg0nVLNrFm8FC2tB4LjOQxsW46BPYPtCQzIcjwLhfp_JYY-8hMbh_B3Cyv-C51VJ65Owg.webp"
+                        alt="">
+                    <h2 style="text-align: center;">새우버거</h2>
                     <p>10000원</p>
                 </div>
             </div>
             <div>
                 <div class="menu1">
-                    <img src="https://i.namu.wiki/i/iIpTJElgm53K4gMqZSg0nVLNrFm8FC2tB4LjOQxsW46BPYPtCQzIcjwLhfp_JYY-8hMbh_B3Cyv-C51VJ65Owg.webp" alt="">
-                    <p>새우버거</p>
+                    <img src="https://i.namu.wiki/i/iIpTJElgm53K4gMqZSg0nVLNrFm8FC2tB4LjOQxsW46BPYPtCQzIcjwLhfp_JYY-8hMbh_B3Cyv-C51VJ65Owg.webp"
+                        alt="">
+                    <h2 style="text-align: center;">새우버거</h2>
                     <p>10000원</p>
                 </div>
             </div>
             <div>
                 <div class="menu1">
-                    <img src="https://i.namu.wiki/i/iIpTJElgm53K4gMqZSg0nVLNrFm8FC2tB4LjOQxsW46BPYPtCQzIcjwLhfp_JYY-8hMbh_B3Cyv-C51VJ65Owg.webp" alt="">
-                    <p>새우버거</p>
+                    <img src="https://i.namu.wiki/i/iIpTJElgm53K4gMqZSg0nVLNrFm8FC2tB4LjOQxsW46BPYPtCQzIcjwLhfp_JYY-8hMbh_B3Cyv-C51VJ65Owg.webp"
+                        alt="">
+                    <h2 style="text-align: center;">새우버거</h2>
                     <p>10000원</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="final">
-        <div class="adress">
-            <div class="adress1"><p>(34856) 넥스트 IT 교육센터 <br> 대전광역시 중구 계룡로 825(용두동, 희영빌딩2층)</p></div>
-            <div class="phone"><p>Tel.000-000-0000 Fax.000-000-0000</p></div>
-    
-        </div>
-</div> 
+    <div class="final" id="final">
+        <!-- * 카카오맵 - 지도퍼가기 -->
+        <!-- 1. 지도 노드 -->
+        <div id="daumRoughmapContainer1691385620278" class="root_daum_roughmap root_daum_roughmap_landing"></div>
 
+        <!--
+	2. 설치 스크립트
+	* 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
+-->
+        <script charset="UTF-8" class="daum_roughmap_loader_script"
+            src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+
+        <!-- 3. 실행 스크립트 -->
+        <script charset="UTF-8">
+            new daum.roughmap.Lander({
+                "timestamp": "1691385620278",
+                "key": "2froe",
+                "mapWidth": "600",
+                "mapHeight": "370"
+            }).render();
+        </script>
+        <div class="adress">
+            <div class="adress1">
+                <p>(34856) 넥스트 IT 교육센터 <br> 대전광역시 중구 계룡로 825(용두동, 희영빌딩2층)</p>
+                <div class="phone">
+                    <p>Tel.000-000-0000 Fax.000-000-0000</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
 </div>
 </body>
+
 </html>

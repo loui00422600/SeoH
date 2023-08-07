@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형웹</title>
+
+    <style>
+        div {
+            border: 1px solid;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nav-bar>div>a {
+            text-decoration: none;
+            color: burlywood;
+            font-size: 20px;
+            margin: 10px;
+        }
+
+        .nav-bar>div {
+            display: flex;
+            align-items: center;
+        }
+
+        .item{
+            height: 300px;
+            border: 0;
+            border-radius: 20px;
+            box-shadow: 0px 0px 4px 4px gainsboro;
+            width: calc(100%/4 - 10px);
+            margin-bottom: 20px;
+        }
+        
+        /* item 클래스의 직계 div 중 첫번째 */
+        .item > div:nth-child(1){
+            height: 60%;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .item > div:nth-child(2){
+            height: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item > div:nth-child(1) > img{
+            width: 420px;
+            height: 100%;
+        }
+
+        .item > div:nth-child(2) > p{
+            font-size: 20px;
+        }
+
+        .item_box{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .search-bar{
+            text-align: center;
+        }
+
+        .search-bar input {
+            width: 70%;
+            /* 너비의 최소값 지정 , 이 최소값 밑으로는 너비가 줄어 들지 않음*/
+            min-width: 200px;
+        }
+
+        /* 현재 화면의 크기가 1000px 이하인 경우 */
+        /* CSS 코드상 아래에 위치 시켜주어야한다 */
+        @media (max-width: 1000px){
+            .item {
+                width: calc(100%/3 - 10px);
+            }
+        }
+
+        @media (max-width: 700px){
+            .item {
+                width: calc(100%/2 - 10px);
+            }
+        }
+
+        @media (max-width: 400px){
+            .item {
+                width: calc(100% - 10px);
+            }
+            .nav-bar > div > a{
+                font-size: 10px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav-bar">
+            <h1>반응형웹</h1>
+            <div>
+                <a href="">게시판</a>
+                <a href="">로그인</a>
+                <a href="">회원가입</a>
+            </div>
+        </div>
+        <div class="search-bar">
+            <input type="text">
+        </div>
+        <div class="item_box">
+            <div class="item">
+                <div>
+                    <img src="https://i.namu.wiki/i/G2ldjqdlaog5upU3p58XR6ZQCTH5JJ5hPSpbxeqWhsMdniSqYuevIRPCWGRElZMLJW5OhIz0Ex0VsPSDpfxQ-Q.webp" alt="">
+                </div>
+                <div>
+                    <p>마르코 로이스</p>
+                </div>
+            </div>
+            <div class="item">
+                <div>
+                    <img src="https://i.namu.wiki/i/G2ldjqdlaog5upU3p58XR6ZQCTH5JJ5hPSpbxeqWhsMdniSqYuevIRPCWGRElZMLJW5OhIz0Ex0VsPSDpfxQ-Q.webp" alt="">
+                </div>
+                <div>
+                    <p>마르코 로이스</p>
+                </div>
+            </div>
+            <div class="item">
+                <div>
+                    <img src="https://i.namu.wiki/i/G2ldjqdlaog5upU3p58XR6ZQCTH5JJ5hPSpbxeqWhsMdniSqYuevIRPCWGRElZMLJW5OhIz0Ex0VsPSDpfxQ-Q.webp" alt="">
+                </div>
+                <div>
+                    <p>마르코 로이스</p>
+                </div>
+            </div>
+            <div class="item">
+                <div>
+                    <img src="https://i.namu.wiki/i/G2ldjqdlaog5upU3p58XR6ZQCTH5JJ5hPSpbxeqWhsMdniSqYuevIRPCWGRElZMLJW5OhIz0Ex0VsPSDpfxQ-Q.webp" alt="">
+                </div>
+                <div>
+                    <p>마르코 로이스</p>
+                </div>
+            </div>
+            <div class="item">
+                <div>
+                    <img src="https://i.namu.wiki/i/G2ldjqdlaog5upU3p58XR6ZQCTH5JJ5hPSpbxeqWhsMdniSqYuevIRPCWGRElZMLJW5OhIz0Ex0VsPSDpfxQ-Q.webp" alt="">
+                </div>
+                <div>
+                    <p>마르코 로이스</p>
+                </div>
+            </div>
+            <div class="item">
+                <div>
+                    <img src="https://i.namu.wiki/i/G2ldjqdlaog5upU3p58XR6ZQCTH5JJ5hPSpbxeqWhsMdniSqYuevIRPCWGRElZMLJW5OhIz0Ex0VsPSDpfxQ-Q.webp" alt="">
+                </div>
+                <div>
+                    <p>마르코 로이스</p>
+                </div>
+            </div>
+            <div class="item">
+                <div>
+                    <img src="https://i.namu.wiki/i/G2ldjqdlaog5upU3p58XR6ZQCTH5JJ5hPSpbxeqWhsMdniSqYuevIRPCWGRElZMLJW5OhIz0Ex0VsPSDpfxQ-Q.webp" alt="">
+                </div>
+                <div>
+                    <p>마르코 로이스</p>
+                </div>
+            </div>
+            <div class="item">
+                <div>
+                    <img src="https://i.namu.wiki/i/G2ldjqdlaog5upU3p58XR6ZQCTH5JJ5hPSpbxeqWhsMdniSqYuevIRPCWGRElZMLJW5OhIz0Ex0VsPSDpfxQ-Q.webp" alt="">
+                </div>
+                <div>
+                    <p>마르코 로이스</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

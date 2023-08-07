@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>필터</title>
+    <style>
+        img{
+            width: 400px;
+        }
+
+        .f-blur{
+            /* 뿌옇게 만듦 */
+            filter: blur(5px);
+        }
+
+        .f-contrast{
+            filter: contrast(150%);
+        }
+
+        .f-grayscale{
+            /* 흑백으로 만듦 100%면 완전 흑백 */
+            filter:grayscale(70%);
+        }
+
+        .f-brighteness{
+            /* 밝기 설정, 낮을수록 어두워짐 */
+            filter: brightness(200%);
+        }
+
+        .f-custom{
+            /* 한번에 여러개의 필터를 적용가능 */
+            filter: brightness(50%) contrast(150%);
+        }
+
+        .item-box{
+            width: 1300px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .item-box > img:hover{
+            filter: blur(0px) brightness(150%);
+        }
+
+        .btn{
+            background-color: orange;
+            padding-left: 12px;
+            padding-right: 12px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: inline-block;
+            /* 해당 div는 inline으로 하면서 div 내부 요소를 flex로 정열하고자 할 때 */
+            display: inline-flex;
+            cursor: pointer;
+            -webkit-user-select:none;
+            -moz-user-select:none;
+            -ms-user-select:none;
+            user-select:none
+            
+        }
+
+        .btn:hover{
+            /* background-color: rgb(179, 135, 54); */
+            /* 이미지가 아니여도 필터 적용 가능 */
+            filter:brightness(95%);
+        }
+
+        html{
+            -webkit-user-select:none;
+            -moz-user-select:none;
+            -ms-user-select:none;
+            user-select:none
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img class="f-contrast" src="https://i.namu.wiki/i/GzSl-6lkugq-hq3hgNHpol_C8rmL2_dFDKnRHc6t2-bRUyCgMnkxSXCTTg77D0U8qg77YlB7_BEKXMEO-FJFWg.webp" alt="">
+        <img class="f-blur" src="https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201702/18/htm_20170218114544126552.jpg" alt="">
+    </div>
+    <div>
+        <img class="f-grayscale" src="https://i.namu.wiki/i/GzSl-6lkugq-hq3hgNHpol_C8rmL2_dFDKnRHc6t2-bRUyCgMnkxSXCTTg77D0U8qg77YlB7_BEKXMEO-FJFWg.webp" alt="">
+        <img class="f-brighteness" src="https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201702/18/htm_20170218114544126552.jpg" alt="">
+    </div>
+    <div>
+        <img class="f-custom" src="https://i.namu.wiki/i/GzSl-6lkugq-hq3hgNHpol_C8rmL2_dFDKnRHc6t2-bRUyCgMnkxSXCTTg77D0U8qg77YlB7_BEKXMEO-FJFWg.webp" alt="">
+        <img class="f-custom" src="https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201702/18/htm_20170218114544126552.jpg" alt="">
+    </div>
+    <div class="item-box">
+        <img class="f-blur" src="https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201702/18/htm_20170218114544126552.jpg" alt="">
+        <img class="f-blur" src="https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201702/18/htm_20170218114544126552.jpg" alt="">
+        <img class="f-blur" src="https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201702/18/htm_20170218114544126552.jpg" alt="">
+        <img class="f-blur" src="https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201702/18/htm_20170218114544126552.jpg" alt="">
+        <img class="f-blur" src="https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201702/18/htm_20170218114544126552.jpg" alt="">
+        <img class="f-blur" src="https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201702/18/htm_20170218114544126552.jpg" alt="">
+    </div>
+    <div class="btn">로그인/회원가입</div>
+
+</body>
+</html>
