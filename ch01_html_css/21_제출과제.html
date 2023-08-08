@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>넥끄날도</title>
+
+    <style>
+      
+
+        .container{
+            width:1200px;
+            margin: auto;
+            background-color: black;
+            padding-top:80px;
+        }
+
+        .nav-bar{
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 1200px;
+            background-color: black;
+        }
+
+        .nav-bar > div:nth-child(1){
+            font-size: 30px;
+            font-weight: bold;
+            color: orange;
+            margin-left: 20px;
+        }
+
+        .nav-bar a{
+            font-size: 15px;
+            text-decoration: none;
+            color: aliceblue;
+            margin: 15px;
+        }
+
+        .nav-bar > div:nth-child(3){
+            font-size: 15px;
+            background-color: orange;
+            border: 0;
+            border-radius: 20px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            padding-left: 12px;
+            padding-right: 12px;
+            margin-right:15px ;
+        }
+        
+        .nav-bar >div:nth-child(3):hover{
+            background-color: rgb(204, 133, 0);
+        }
+
+        .header{
+            display: flex;
+            height: 400px;
+            
+        }
+
+        .header > div:nth-child(1){
+            width: 50%;
+            display: flex;
+            align-items: center;
+        }
+
+        .header > div:nth-child(2){
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header p {
+           width: 75%;
+           color: white;
+           /* 줄 높이 */
+           line-height: 40px;
+        }
+
+        .content{
+            background-color: white;
+            width: 90%;
+           padding-left: 60px;
+           padding-right: 60px;
+            
+        }
+
+        .item{
+            width: calc(100% / 3 - 20px);
+            height: 400px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 4px 2px gainsboro;
+            overflow: hidden;
+        }
+        
+        .item > div:nth-child(1){
+            height: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item > div:nth-child(2){
+            height: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .item p{
+            margin: 10px;
+        }
+
+        .content > div:nth-child(2){
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .footer{
+            height: 300px;
+            background-color: #121227;
+            display: flex;
+        }
+
+        .footer > div:nth-child(1){
+            width: 50%;
+            padding:20px;
+        }
+
+        .footer > div:nth-child(1) > div{
+            width: 100%;
+            height: 100%;
+        }
+
+        .footer > div:nth-child(2){
+            width: 50%;
+            padding: 20px;
+        }
+
+        .footer > div:nth-child(2) > p:nth-child(1){
+            color: white;
+            font-size: 25px
+        }
+
+
+        .footer > div:nth-child(2) > p:nth-child(2){
+            color: white;
+            font-size: 15px
+        }
+        /* a태그를 부드럽게 이동시킬때? */
+        html{
+            scroll-behavior: smooth;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-bar">
+            <div>넥끄날도</div>
+            <div>
+                <a href="#top">Home</a>
+                <a href="#menu">메뉴</a>
+                <a href="#item">오시는길</a>
+            </div>
+            <div>로그인/회원가입</div>
+        </div>
+        <div class="header">
+            <div>
+                <img width="100%" src="https://i.namu.wiki/i/8FVj4a6KlKI3ofoH8QdlZ_Ik7lau7MWhPK96WBBJE1bVg2PHv3GD3266oMpMmEfjaL8-aRtnzoeUFHyVCAFHwg.webp" alt="">
+            </div>
+            <div>
+                <h1 style="color: orange;">귀요미 버거</h1>
+                <p>"둘이 먹다가 하나 죽어도 아무도 모르는 그 환상의 맛... 100% 순 게 살코기에 해저 치즈, 피클, 상추, 토마토, 양파를 절대 잊지 못할 거야... 그걸 김이 모락모락 나는 참깨빵 사이에 넣어서 먹으면..."</p>
+            </div>
+        </div>
+    <div class="content" id="menu">
+        <div>
+            <h3 style="color: orange; text-align: center;">햄버거 목록</h3>
+        </div>
+        <div>
+            <div class="item">
+                <div>  
+                    <img  height="90%" src="https://png.pngtree.com/png-vector/20210128/ourmid/pngtree-lunch-burger-fast-food-png-image_2835143.jpg" alt="">
+                </div>
+                <div>
+                    <p>젤리버거</p>
+                    <p>500원</p>
+                </div>
+            </div>
+            <div class="item">
+                <div>  
+                    <img  height="90%" src="https://png.pngtree.com/png-vector/20210128/ourmid/pngtree-lunch-burger-fast-food-png-image_2835143.jpg" alt="">
+                </div>
+                <div>
+                    <p>젤리버거</p>
+                    <p>500원</p>
+                </div>
+            </div>
+            <div class="item">
+                <div>  
+                    <img  height="90%" src="https://png.pngtree.com/png-vector/20210128/ourmid/pngtree-lunch-burger-fast-food-png-image_2835143.jpg" alt="">
+                </div>
+                <div>
+                    <p>젤리버거</p>
+                    <p>500원</p>
+                </div>
+            </div>
+            <div class="item">
+                <div>  
+                    <img  height="90%" src="https://png.pngtree.com/png-vector/20210128/ourmid/pngtree-lunch-burger-fast-food-png-image_2835143.jpg" alt="">
+                </div>
+                <div>
+                    <p>젤리버거</p>
+                    <p>500원</p>
+                </div>
+            </div>
+            <div class="item">
+                <div>  
+                    <img  height="90%" src="https://png.pngtree.com/png-vector/20210128/ourmid/pngtree-lunch-burger-fast-food-png-image_2835143.jpg" alt="">
+                </div>
+                <div>
+                    <p>젤리버거</p>
+                    <p>500원</p>
+                </div>
+            </div>
+            <div class="item">
+                <div>  
+                    <img  height="90%" src="https://png.pngtree.com/png-vector/20210128/ourmid/pngtree-lunch-burger-fast-food-png-image_2835143.jpg" alt="">
+                </div>
+                <div>
+                    <p>젤리버거</p>
+                    <p>500원</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer" id="item">
+                <!-- * 카카오맵 - 지도퍼가기 -->
+<!-- 1. 지도 노드 -->
+<div id="daumRoughmapContainer1691475141318" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+            <div>
+                <p>(34856) 넥스트 아이티 교육센터 대전광역시 중구 계룡로 343-12 희영빌딩 2층</p>
+                <p>tel: 042-719-8850 Fax: 042-719-8851</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+	2. 설치 스크립트
+	* 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
+-->
+<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+
+<!-- 3. 실행 스크립트 -->
+<script charset="UTF-8">
+	new daum.roughmap.Lander({
+		"timestamp" : "1691475141318",
+		"key" : "2fs84",
+		"mapWidth" : "100%",
+		"mapHeight" : "100%"
+	}).render();
+</script>
+</body>
+</html>
