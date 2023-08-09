@@ -9,6 +9,7 @@
     </style>
 </head>
 <body>
+    <h1>자바스크립트 시작</h1>
     
     <!-- body태그가 닫히는 곳 위에 위치 시키는 것을 추천 -->
     <script>
@@ -192,11 +193,13 @@
         }
 
         //구구단
-
-        for(var i = 1; i < 10;i++){
-            document.write(i + "단<br>");
+        //자바스크립트를 이용하여 html 코드 등을 화면에 반영 시킬 수 있다.
+        //document.write() 과호 안에 있는 내용을 현재 html 페이지에 추가한다.
+        document.write("<h1>구구단</h1>");
+        for(var i = 2; i < 10;i++){
+            document.write("<h2>" + i + "단<br></h2>");
             for(let j=1; j<10;j++){
-                document.write(i +"*"+ j + "=" + i*j +"<br>");
+                document.write(i +" x "+ j + " = " + i*j +"<br>");
             }
         }
 
