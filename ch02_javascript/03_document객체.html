@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document객체</title>
     <style>
-        .box{
+        .box {
             width: 200px;
             height: 200px;
             border: 2px solid black;
@@ -14,6 +15,7 @@
         }
     </style>
 </head>
+
 <body>
     <p id="count">0</p>
     <div class="box"></div>
@@ -23,8 +25,12 @@
     <div class="box"></div>
     <br>
     <button onclick="f_click()">클릭</button>
+
     <script>
-        function f_click(){
+
+        let v_box = document.getElementsByClassName("box");
+
+        function f_click() {
             // document 객체 = DOM(Document Object Model) 객체
             // 현재 페이지의 태그 요소에 접근하고 조작할 수 있음
             let v_ptag = document.getElementById("count");
@@ -34,19 +40,34 @@
             console.log(v_ptag.innerHTML);
 
             //태그 내부 변경도 가능
-            v_ptag.innerHTML = parseInt(v_ptag.innerHTML)+1;
+            v_ptag.innerHTML = parseInt(v_ptag.innerHTML) + 1;
+
+            v_box[0].style.backgroundColor = f_rgbColor();
+            v_box[1].style.backgroundColor = f_rgbColor();
+            v_box[2].style.backgroundColor = f_rgbColor();
+            v_box[3].style.backgroundColor = f_rgbColor();
+            v_box[4].style.backgroundColor = f_rgbColor();
+
+
+
+
 
         }
 
-        function randNum(){
-            return Math.floor(Math.random()*256)+1;
-        }
-        
 
-        function f_rgbColor(){
-            return "("+randNum()+"," +randNum() + "," + randNum()+")";
+
+        function randNum() {
+            return Math.floor(Math.random() * 256) + 1;
+        }
+
+
+        function f_rgbColor() {
+            return "rgb(" + randNum() + "," + randNum() + "," + randNum() + ")";
         }
         console.log(f_rgbColor());
+
+
     </script>
 </body>
+
 </html>

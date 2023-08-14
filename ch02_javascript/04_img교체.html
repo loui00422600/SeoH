@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>img교체</title>
+</head>
+<body>
+    <img id="Img" width="500" height="400" src="../resources/images/냥이.jpeg">
+    <br>
+    <button onclick="f_changeimg()">이미지 교체</button>
+    <script>
+        let imgArray=["이미지1.jpg","이미지2.jpg","이미지3.jpg"];
+
+        let idx= 0;
+        function f_changeimg(){
+            let myimg = document.getElementById("Img");
+
+            idx++;
+
+            myimg.src="../resources/images/" + imgArray[idx%3];
+        }
+
+    </script>
+    
+</body>
+</html>

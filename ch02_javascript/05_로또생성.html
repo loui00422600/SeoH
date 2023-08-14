@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또번호생성기</title>
+    
+    <style>
+        .d-flex{
+            display: flex;
+        }
+        
+        .d-flex > div{
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+
+            font-size: 40px;
+            font-weight: bold;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <h2 id="result"></h2>
+
+    <script>
+        let v_box = document.getElementsByClassName("box");
+
+        console.log(v_box);
+
+        let numArray = [];
+
+        while(numArray.length < 6) {
+            let randNum = Math.floor(Math.random() * 45) +1;
+
+        if(numArray.indexOf(randNum) == -1) {
+            numArray.push(randNum);
+        }
+    }
+        console.log(numArray);
+
+        numArray.sort();
+
+        console.log(numArray);
+
+        numArray.sort(function(a, b) {
+            return a - b;
+        });
+        console.log(numArray);
+
+        for(let i = 0; i < v_box.length; i++) {
+            v_box[i].innerHTML = numArray[i];
+        }
+
+        let winLotto = [4, 8, 18, 24, 37, 45];
+
+        let count = 0;
+        for (let i = 0; i < numArray.length; i++) {
+            if(winLotto.indexOf(numArray[i]) != -1) {
+                v_box[i].style.backgroundColor = "red";
+                count++;
+            }
+        }
+
+        let v_htag = document.getElementById("result");
+        v_htag.innerHTML = count + "개 일치합니다.";
+    </script>
+</body>
+</html>
