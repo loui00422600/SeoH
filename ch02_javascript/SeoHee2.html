@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeoHee2</title>
+    <style>
+
+        .container {
+            border-radius: 8px;
+            box-shadow: 1px 1px 5px 5px skyblue;
+            width: 600px;
+            height: 400px;
+            flex-wrap: wrap;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .middle>div {
+            margin-left: 30px;
+        }
+
+        .name {
+            margin-left: 30px;
+        }
+
+        .container>div:nth-child(1) {
+
+            margin-top: 50px;
+        }
+
+        .cmkg {
+
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cmkg>div:nth-child(1) {
+            width: 50%;
+        }
+
+        .cmkg>div:nth-child(2) {
+            width: 50%;
+        }
+
+        .cmkg>div>input {
+            border-radius: 5px;
+            width: 80%;
+            height: 20px;
+        }
+
+        .cm>div {
+            margin-bottom: 15px;
+        }
+
+        .kg>div {
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            margin-top: 30px;
+            width: 90%;
+            height: 50px;
+            color: white;
+            background-color: rgb(163, 163, 230);
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="timer">
+        <h3 id="count">00:00</h3>
+        <div id ="stick" style="background-color: red; width: 240px; height: 10px;"></div>
+    </div>
+    <div class="container" >
+        <div id="cont">
+            <div class="name">
+                <h1>표준 체중 계산기</h1>
+            </div>
+            <div class="middle">
+                <div class="cmkg">
+                    <div class="cm">
+                        <div>
+                            키(cm):
+                        </div>
+                        <input type="text" id="tall">
+                    </div>
+                    <div class="kg">
+                        <div>
+                            체중(kg):
+                        </div>
+                        <input type="text" id="weight">
+                    </div>
+                </div>
+                <div class="gender">
+                    남성 <input type="radio" name="gender" value="male" checked>
+                    여성 <input type="radio" name="gender" value="female">
+                </div>
+                <div class="btn" onclick="f_result()">계산하기</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        let v_container = document.getElementById("cont");
+        let v_gender = document.getElementsByName("gender");
+        const v_tall = document.getElementById("tall");
+        const v_weight = document.getElementById("weight");
+
+        function f_result() {
+            let standardweight = 0;
+            let obesity = 0;
+
+
+            let genderChecked = '';
+            for (let i = 0; i < v_gender.length; i++) {
+                if (v_gender[i].checked) {
+                    genderChecked = v_gender[i].value;
+                }
+            }
+
+            if (genderChecked == "male") {
+                standardweight = (parseInt(v_tall.value) / 100) * (parseInt(v_tall.value) / 100) * 22;
+            } else if (genderChecked == "female") {
+                standardweight = (parseInt(v_tall.value) / 100) * (parseInt(v_tall.value) / 100) * 21
+            }
+
+            obesity = parseInt(v_weight.value) / standardweight * 100;
+
+            console.log(standardweight);
+            console.log(obesity);
+
+            v_container.innerHTML = "<h1><br><br>&nbsp&nbsp 적합한 표준 체중은 " + Math.floor(standardweight) + "kg 이며,<br><br>&nbsp&nbsp 현재 비만도는 " + f_obe(obesity) + "입니다.</h1>";
+
+
+
+        }
+
+        function f_obe(p_obesity) {
+            if (p_obesity < 90) {
+                return "저체중";
+            } else if (p_obesity >= 90 && p_obesity < 110) {
+                return "정상 체중";
+            } else if (p_obesity >= 110 && p_obesity < 120) {
+                return "과체중";
+            } else if (p_obesity >= 120 && p_obesity < 130) {
+                return "경도 비만";
+            } else if (p_obesity >= 130 && p_obesity < 160) {
+                return "중정도 비만";
+            } else if (p_obesity >= 160) {
+                return "고도 비만";
+            }
+        }
+
+        let v_timer =document.getElementById("count");
+        let v_stick =document.getElementById("stick");
+
+        let num = 30 ;
+
+        function f_timer(){
+            num --;
+
+            if(num < 10){
+                num="0"+num;
+            }
+
+            if(num >= 0){
+                v_timer.innerHTML="00:" + num;
+                v_stick.style.width = (parseInt(v_stick.style.width) - (240/30)) +"px";
+            } else {
+                num=0;
+                v_stick.style.width = "0px";
+            }
+            setTimeout(f_timer,1000);
+        }
+
+
+        f_timer();
+
+    </script>
+</body>
+
+</html>

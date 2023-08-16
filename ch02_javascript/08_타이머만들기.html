@@ -7,6 +7,7 @@
 </head>
 <body>
     <div id="clock"></div>
+    <button onclick="f_stop()">정지</button>
 
     <script>
         const v_clock=document.getElementById("clock");
@@ -16,6 +17,10 @@
         function f_showTime(){
             let v_date=new Date();
 
+            console.log("년 : " + v_date.getFullYear());
+            console.log("월 : " + (v_date.getMonth()+1) );
+            console.log("일 : " + v_date.getDate());
+            console.log("요일 : " + v_date.getDay()); // 일요일:0, 토요일:6
             console.log("시 :" + v_date.getHours());
             console.log("분 :" + v_date.getMinutes());
             console.log("초 :" + v_date.getSeconds());
@@ -36,12 +41,30 @@
                 hour=  v_date.getHours();
             }
 
-            v_clock.innerHTML = hour + min + sec;
+            v_clock.innerHTML = v_date.getFullYear() +"/" +(v_date.getMonth()+1) +"/" +v_date.getDate() + " " + f_day() + " " + hour + min + sec;
 
             setTimeout(f_showTime,1000);
         }
 
-        f_showTime();
+        function f_day() {
+            let v_date=new Date();
+            let day = ["일","월","화","수","목","금","토"];
+            
+            for(let i = 0; i<day.length; i++){
+                if(v_date.getDay() == i){
+                    return day[i] + "요일";
+                }
+            }
+        }
+
+        //f_showTime();
+
+        //setInterval은 괄호 안 함수를 1초 간격으로 무한 반복 실행시킴
+        let v_timer=setTimeout(f_showTime,1000);
+
+        function f_stop(){
+            clearInterval(v_timer);
+        }
     </script>
 </body>
 </html>

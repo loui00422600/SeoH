@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타이머게임</title>
+
+
+    <style>
+        .container {
+            width: 600px;
+            height: 600px;
+
+            border: 1px solid blue;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            position: absolute;
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" onclick="f_click()">
+        <h2 id="count">0</h2>
+    </div>
+
+    <script>
+
+        const v_count = document.getElementById("count");
+        
+
+        let v_sec = 0;
+        let correctTime;
+        let clickTime;
+
+        function f_timer(){
+
+            v_sec=v_sec+ 1;
+
+            
+
+            if(v_sec>5){
+                v_count.innerHTML = "?";
+            } else {
+                v_count.innerHTML=parseInt(v_count.innerHTML) + 1;
+            }
+
+            if(v_sec == 15){
+                correctTime = new Date();
+            }
+
+            //18초가 흐른 후 두시간의 차이를 계산
+            //결과 보여주고, 반복 종료
+            if(v_sec == 18){
+                let result = (clickTime-correctTime)/1000;
+                console.log(Math.abs(result) );
+
+                v_count.innerHTML= Math.abs(result) + "초 차이";
+                return;
+            }
+
+            setTimeout(f_timer,1000);
+        }
+
+        setTimeout(f_timer,1000);
+
+        function f_click(){
+            //클릭한 시점의 시간 얻기
+            clickTime = new Date();
+            document.getElementsByClassName("container")[0].style.backgroundColor = "greenYellow";
+        }
+
+    </script>
+</body>
+
+</html>
