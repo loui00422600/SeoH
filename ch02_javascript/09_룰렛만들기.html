@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>룰렛</title>
+    <style>
+        .container{
+            width: 800px;
+            height: 600px;
+            border: 1px solid black;
+            margin: auto;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container > div{
+            height: 80%;
+
+            position: relative;
+        }
+        .triangle{
+            width: 0;
+            height: 0;
+            border-bottom: 30px solid transparent;
+            border-top: 60px solid red;
+            border-left:20px solid rgba(0,0,0,0);
+            border-right: 20px solid #ffffff00;
+            position: absolute;
+            top:0;
+            right: 30%;
+
+            transform: translate(-50%, 0);
+        }
+
+        .btn{
+            width: 90px;
+            height: 90px;
+            border-radius: 45px;
+            background-color: red;
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 30px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            
+            <img id="rol" height="100%" src="../resources/images/1675901051444.png" alt="">
+            <div id="btn" class="btn" onclick="f_start()">start</div>
+        </div>
+        <div class="triangle"></div>
+    </div>
+
+    <script>
+        const v_btn=document.getElementById("btn");
+        const v_rol=document.getElementById("rol");
+
+        let i = 0;
+        let v_isRun = false;
+
+        
+        function f_start(){
+            if(!v_isRun){
+                let v_rand = Math.floor(Math.random() * 37) + 200;
+                f_rotate(v_rand );
+                v_isRun=true;
+            }
+        }
+
+        let speed = 20;
+        let v_count=0;
+
+        function f_rotate(p_rand){
+            v_count++;
+            i += 10;
+                v_rol.style.transform="rotate(" + i +"deg)";
+
+                
+                if (v_count > 140){
+                    speed += 2;
+                }
+                
+                if(v_count > p_rand){
+                    return;
+                }
+                
+                setTimeout(f_rotate,speed,p_rand);
+            
+        }
+    </script>
+</body>
+</html>

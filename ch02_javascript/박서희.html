@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SeoHee2</title>
+    <title>박서희</title>
     <style>
 
         .container {
             border-radius: 8px;
             box-shadow: 1px 1px 5px 5px skyblue;
             width: 600px;
-            height: 400px;
+            height: 500px;
             flex-wrap: wrap;
             position: absolute;
             left: 50%;
@@ -73,12 +73,16 @@
             justify-content: center;
             align-items: center;
         }
+
+        .btn:hover{
+            background-color: rgb(134, 134, 190); ;
+        }
     </style>
 </head>
 
 <body>
     <div class="timer">
-        <h3 id="count">00:00</h3>
+        <h3 id="count"></h3> <button Onclick ="f_ctime()">클릭</button>
         <div id ="stick" style="background-color: red; width: 240px; height: 10px;"></div>
     </div>
     <div class="container" >
@@ -105,7 +109,13 @@
                     남성 <input type="radio" name="gender" value="male" checked>
                     여성 <input type="radio" name="gender" value="female">
                 </div>
-                <div class="btn" onclick="f_result()">계산하기</div>
+                <div class="btn" onclick="f_result()">
+                    계산하기
+                </div>
+                <div>
+                <h3 class="result"></h3>
+                <h3 class="result"></h3>
+                </div>
             </div>
         </div>
     </div>
@@ -116,6 +126,7 @@
         let v_gender = document.getElementsByName("gender");
         const v_tall = document.getElementById("tall");
         const v_weight = document.getElementById("weight");
+        const v_result = document.getElementsByClassName("result");
 
         function f_result() {
             let standardweight = 0;
@@ -140,7 +151,17 @@
             console.log(standardweight);
             console.log(obesity);
 
-            v_container.innerHTML = "<h1><br><br>&nbsp&nbsp 적합한 표준 체중은 " + Math.floor(standardweight) + "kg 이며,<br><br>&nbsp&nbsp 현재 비만도는 " + f_obe(obesity) + "입니다.</h1>";
+            if(v_tall.value != "" && v_weight.value != ""){
+                v_result[0].innerHTML="적합한 표준 체중은 " + Math.floor(standardweight) + "kg 이며,";
+            v_result[1].innerHTML=" 현재 비만도는 " + f_obe(obesity) + "입니다."
+            } else {
+                v_result[0].innerHTML ="";
+                v_result[1].innerHTML ="";
+            }
+
+            
+
+            // v_container.innerHTML = "<h1><br><br>&nbsp&nbsp 적합한 표준 체중은 " + Math.floor(standardweight) + "kg 이며,<br><br>&nbsp&nbsp 현재 비만도는 " + f_obe(obesity) + "입니다.</h1>";
 
 
 
@@ -184,7 +205,13 @@
             setTimeout(f_timer,1000);
         }
 
+        function f_ctime(){
+            num = 30;
+            v_timer.innerHTML="00:" + num;
+            v_stick.style.width="240px";
 
+        }
+        
         f_timer();
 
     </script>

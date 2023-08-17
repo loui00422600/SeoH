@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        img {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="count">30</div>
+
+        <div id="bar" style="width: 240px; height: 10px; background-color: bisque; border: 1px solid black;"></div>
+        <img width="30" height="30" src="https://w7.pngwing.com/pngs/980/70/png-transparent-computer-icons-button-refresh-button-angle-text-photography-thumbnail.png" alt="" onclick="f_ctime()">
+    <script>
+        let num = 30;
+        let v_timer = document.getElementById("count");
+        let v_stick = document.getElementById("bar");
+
+        function f_timer() {
+            num--;
+
+            if (num < 10) {
+                num = "0" + num;
+            }
+
+            if (num >= 0) {
+                v_timer.innerHTML = "00:" + num;
+                v_stick.style.width = (parseInt(v_stick.style.width) - (240 / 30)) + "px";
+            } else {
+                num = 0;
+                v_stick.style.width = "0px";
+            }
+            setTimeout(f_timer, 1000);
+        }
+
+        function f_ctime() {
+            num = 30;
+            v_timer.innerHTML = "00:" + num;
+            v_stick.style.width = "240px";
+
+        }
+
+        f_timer();
+    </script>
+</body>
+
+</html>
