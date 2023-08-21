@@ -29,7 +29,7 @@
             border-right: 20px solid #ffffff00;
             position: absolute;
             top:0;
-            right: 30%;
+            left: 50%;
 
             transform: translate(-50%, 0);
         }
@@ -60,8 +60,8 @@
             
             <img id="rol" height="100%" src="../resources/images/1675901051444.png" alt="">
             <div id="btn" class="btn" onclick="f_start()">start</div>
+            <div class="triangle"></div>
         </div>
-        <div class="triangle"></div>
     </div>
 
     <script>
@@ -84,8 +84,8 @@
         let v_count=0;
 
         function f_rotate(p_rand){
-            v_count++;
-            i += 10;
+                v_count++;
+                i += 10;
                 v_rol.style.transform="rotate(" + i +"deg)";
 
                 
@@ -94,6 +94,37 @@
                 }
                 
                 if(v_count > p_rand){
+
+                    let degree = i % 360;
+                    let present = "";
+
+                    if(degree < 30){
+                        present="아이패드";
+                    } else if (degree < 90){
+                        present ="10%할인쿠폰";
+                    } else if (degree<150){
+                        present = "미스터피자"
+                    } else if (degree<210){
+                        present = "기프트카드";
+                    } else if (degree < 270) {
+                        present = "갤럭시 버즈";
+                    } else if (degree < 330){
+                        present = "아메리카노";
+                    } else {
+                        present ="아이패드";
+                    }
+
+                    alert(present);
+
+                    //이후 다시 롤렛을 돌릴 수 있도록
+                    //원판의 위치 초기화
+                    // v_isRun 초기화 v_deg 초기화
+                    v_rol.style.transform = "rotate(0deg)";
+                    v_speed = 20;
+                    v_count = 0;
+                    v_isRun = false;
+                    i=0;
+
                     return;
                 }
                 
