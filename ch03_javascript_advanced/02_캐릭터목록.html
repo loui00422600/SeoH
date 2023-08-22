@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 800px;
+            height: 500px;
+            border: 1px solid black;
+            margin: auto;
+        }
+        .slot{
+            height: 80%;
+            display: flex;
+        }
+
+        .character{
+            width: calc(100%/3);
+            height: 100%;
+            border: 1px solid blue;
+
+            text-align: center;
+        }
+        .menu{
+            height: 20%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button{
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 7px;
+            padding-bottom: 7px;
+            font-size: 20px;
+        }
+
+        .character > img {
+            height: 60%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="slot">
+            <div class="character"></div>
+            <div class="character"></div>
+            <div class="character"></div>
+        </div>
+        <div class="menu">
+            <button onclick="f_new()">캐릭터 생성</button>
+        </div>
+    </div>
+
+    <script>
+        function f_new(){
+            if(v_array.length == 3){
+                alert("생성 불가");
+                return;
+            }
+            location.href="./02_캐릭터생성.html"
+        }
+
+
+        let v_array = JSON.parse(localStorage.getItem("select"));
+        console.log(v_array);
+
+        const v_character = document.getElementsByClassName("character");
+
+        for(let i = 0 ; i<v_character.length;i++){
+            let v_img = document.createElement("img");
+            v_img.src=v_array[i]["src"];
+            
+            v_character[i].appendChild(v_img);
+
+            let v_h = "<h2>" + v_array[i]["name"] + "</h2>";
+            v_character[i].innerHTML += v_h;
+
+            let v_btn = document.createElement("button");
+            v_btn.innerHTML="삭제";
+            v_btn.onclick=function(){
+                v_array.splice(i,1);
+                localStorage.setItem("select",JSON.stringify(v_array));
+                location.reload();
+                
+            }
+            v_character[i].appendChild(v_btn);
+        }
+
+        function f_draw(){
+            let v_array = JSON.parse(localStorage.getItem("select"));
+        console.log(v_array);
+
+        const v_character = document.getElementsByClassName("character");
+
+        for(let i = 0 ; i<v_character.length;i++){
+            let v_img = document.createElement("img");
+            v_img.src=v_array[i]["src"];
+            
+            v_character[i].appendChild(v_img);
+
+            let v_h = "<h2>" + v_array[i]["name"] + "</h2>";
+            v_character[i].innerHTML += v_h;
+
+            let v_btn = document.createElement("button");
+            v_btn.innerHTML="삭제";
+            v_btn.onclick=function(){
+                v_array.splice(i,1);
+                localStorage.setItem("select",JSON.stringify(v_array));
+                location.reload();
+            }
+            v_character[i].appendChild(v_btn);
+        }
+            
+        }
+
+
+    </script>
+</body>
+</html>
