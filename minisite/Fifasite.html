@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squadmaker</title>
+    <style>
+        div {
+            border: 1px solid red;
+        }
+
+        .container {
+            width: 1200px;
+            height: 2000px;
+            border: 1px solid black;
+
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .etc {
+            height: 10%;
+
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .etc > div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .etc>div:nth-child(1) {
+            width: 20%;
+            border: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            
+        }
+
+        .etc>div:nth-child(1) > div:nth-child(1){
+            width: 100%;
+            height: 40%;
+            border: 0;
+            text-align: center;
+            
+        }
+        .etc>div:nth-child(1) > div:nth-child(2){
+            width: 100%;
+            height: 60%;
+            border:0;
+            text-align: center;
+        }
+
+
+        
+
+        .etc>div:nth-child(2) {
+            width: 50%;
+            border: 0
+        }
+
+        .etc>div:nth-child(3) {
+            width: 30%;
+            border: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .etc>div:nth-child(3) > div{
+            height: 25%;
+            border: 0;
+        }
+
+        .formation {
+            height: 5%;
+        }
+
+        .filed {
+            height: 80%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="etc">
+            <div>
+                <div><p style="font-size: 20px;">급 여</p></div>
+                <div><p style="font-size: 30px;">100/140</p></div>
+            </div>
+            <div><h1>1,000,000,0000000000 $</h1></div>
+            <div>
+                <div></div>
+                <div>
+                    <div>
+                        <div></div>
+                    </div>
+                </div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div class="formation"></div>
+        <div class="filed"></div>
+
+    </div>
+</body>
+
+</html>
