@@ -7,7 +7,7 @@
     <title>Squadmaker</title>
     <style>
         div {
-            border: 1px solid red;
+
         }
 
         .container {
@@ -22,94 +22,406 @@
 
         .etc {
             height: 10%;
-
             display: flex;
             flex-wrap: wrap;
+            justify-content: space-between;
+            border-bottom: 2px solid gray;
         }
 
-        .etc > div{
+        .etc>div {
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .etc>div:nth-child(1) {
-            width: 20%;
+        .salary {
+            width: 15%;
             border: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            
+            border-right: 1px solid gray;
+
+
         }
 
-        .etc>div:nth-child(1) > div:nth-child(1){
+        .salary>div:nth-child(1) {
             width: 100%;
             height: 40%;
             border: 0;
             text-align: center;
-            
+
         }
-        .etc>div:nth-child(1) > div:nth-child(2){
+
+        .salary>div:nth-child(2) {
             width: 100%;
             height: 60%;
-            border:0;
+            border: 0;
             text-align: center;
         }
 
 
-        
 
-        .etc>div:nth-child(2) {
-            width: 50%;
+
+        .price {
+            width: 45%;
             border: 0
         }
 
-        .etc>div:nth-child(3) {
+        .stat {
             width: 30%;
             border: 0;
             display: flex;
+            align-items: center;
+            justify-content: center;
             flex-direction: column;
+            border-left: 1px solid gray;
         }
 
-        .etc>div:nth-child(3) > div{
+        .stat>div {
             height: 25%;
             border: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .formation {
-            height: 5%;
+            height: 70%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
         }
 
-        .filed {
-            height: 80%;
+        .dropdown {
+            margin-top: 30px;
+            background-color: rgb(82, 78, 78);
+            border-radius: 5px;
+            width: 120px;
+            height: 35px;
+            color:white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
         }
+
+        .dropdown:hover{
+            background-color: rgb(59, 57, 57);
+        }
+
+
+        .formation-choice{
+            width: 400px;
+            height: 200px;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+
+            z-index: 100;
+            
+        }
+
+        .d-none{
+            display: none;
+        }
+
+        .formation-choice > div {
+            width: calc(100% / 2 - 6px);
+            height: calc(100% /3);
+            background-color: gainsboro;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 30px;
+            border: 3px solid gray;
+            cursor: pointer;
+
+        }
+
+        .filed{
+            margin: 300px;
+            width:1000px;
+            height:1000px;
+            border: 1px solid blue;
+
+            position: absolute;
+            z-index: 50;
+            display: flex;
+        }
+
+        .filed > div {
+            width: 150px;
+            height: 200px;
+            border: 1px solid black;
+            background-color: white;
+
+            z-index: 70;
+        }
+
+        #player1 {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            
+       
+        }
+
+        #player2 {
+            position: absolute;
+            bottom: 10%;
+            left: 5%;
+            transform: translate(-50%,-50%);
+            
+        }
+
+        #player3 {
+            position: absolute;
+            bottom: 5%;
+            left: 35%;
+            transform: translate(-50%,-50%);
+
+            
+        }
+
+        #player4 {
+            position: absolute;
+            bottom: 5%;
+            left: 65%;
+            transform: translate(-50%,-50%);
+        }
+
+        #player5 {
+            position: absolute;
+            bottom: 10%;
+            left: 95%;
+            transform: translate(-50%,-50%);
+        }
+
+        #player6 {
+            position: absolute;
+            bottom: 30%;
+            left: 30%;
+            transform: translate(-50%,-50%);
+        }
+
+        #player7 {
+            position: absolute;
+            bottom: 30%;
+            left: 70%;
+            transform: translate(-50%,-50%);
+        }
+
+        #player8 {
+            position: absolute;
+            bottom: 55%;
+            left: 15%;
+            transform: translate(-50%,-50%);
+        }
+
+        #player9 {
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        #player10 {
+            position: absolute;
+            bottom: 55%;
+            left: 85%;
+            transform: translate(-50%,-50%);
+        }
+
+        #player11 {
+            position: absolute;
+            top: 0%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+
     </style>
 </head>
 
 <body>
     <div class="container">
         <div class="etc">
-            <div>
-                <div><p style="font-size: 20px;">급 여</p></div>
-                <div><p style="font-size: 30px;">100/140</p></div>
-            </div>
-            <div><h1>1,000,000,0000000000 $</h1></div>
-            <div>
-                <div></div>
+            <div class="salary">
                 <div>
-                    <div>
-                        <div></div>
-                    </div>
+                    <p style="font-size: 20px;">급 여</p>
                 </div>
-                <div></div>
-                <div></div>
+                <div>
+                    <p style="font-size: 30px;">100/140</p>
+                </div>
+            </div>
+            <div class="price">
+                <h1>0$</h1>
+            </div>
+            <div class="stat">
+                <div>능력치 </div>
+                <div>
+                    <p>FW &nbsp;</p>
+                    <div style="border: 1px solid black; width:150px; height: 15px; ">
+                        <div style="background-color: red; width: 150px; height: 13px;"></div>
+                    </div>
+                    <p>&nbsp;150</p>
+                </div>
+                <div>
+                    <p>MF &nbsp;</p>
+                    <div style="border: 1px solid black; width:150px; height: 15px; ">
+                        <div style="background-color: yellowgreen; width: 150px; height: 13px;"></div>
+                    </div>
+                    <p>&nbsp;150</p>
+                </div>
+                <div>
+                    <p>DF &nbsp;</p>
+                    <div style="border: 1px solid black; width:150px; height: 15px; ">
+                        <div style="background-color: skyblue; width: 150px; height: 13px;"></div>
+                    </div>
+                    <p>&nbsp;150</p>
+                </div>
             </div>
         </div>
-        <div class="formation"></div>
-        <div class="filed"></div>
+            <div class="formation">
+                <div class="dropdown" onclick="f_btn()">포메이션 &nbsp;&nbsp; ▼</div>
+                <div class="formation-choice d-none">
+                    <div class="position" value="4-2-3-1" onclick="f_for()">4-2-3-1</div>
+                    <div class="position" value="4-3-3" onclick="f_for()">4-3-3</div>
+                    <div class="position" value="4-1-4-1" onclick="f_for()">4-1-4-1</div>
+                    <div class="position" value="4-2-1-3" onclick="f_for()">4-2-1-3</div>
+                    <div class="position" value="5-2-3" onclick="f_for()">5-2-3</div>
+                    <div class="position" value="3-4-3" onclick="f_for()">3-4-3</div>
+                </div>
+                <div class="filed">
+                    <div class="player" id="player1">1</div>
+                    <div class="player" id="player2">2</div>
+                    <div class="player" id="player3">3</div>
+                    <div class="player" id="player4">4</div>
+                    <div class="player" id="player5">5</div>
+                    <div class="player" id="player6">6</div>
+                    <div class="player" id="player7">7</div>
+                    <div class="player" id="player8">8</div>
+                    <div class="player" id="player9">9</div>
+                    <div class="player" id="player10">10</div>
+                    <div class="player" id="player11">11</div>
+                </div>
+            </div>
 
-    </div>
+        </div>
+
+        <script>
+            const v_forma = document.getElementsByClassName("dropdown")[0];
+            const v_forch = document.getElementsByClassName("formation-choice")[0];
+            const v_formas = document.getElementsByClassName("position");
+            const v_player = document.getElementsByClassName("player");
+
+            let onoff = true;
+            function f_btn(){
+                if(onoff){
+                    v_forch.classList.remove("d-none");
+                    onoff = false;
+                    v_forma.innerHTML="포메이션 &nbsp;&nbsp; ▲";
+                } else if(onoff){
+                    v_forch.classList.add("d-none");
+                    onoff = true;
+                    v_forma.innerHTML="포메이션 &nbsp;&nbsp; ▼";
+                }
+            }
+
+            function f_for(){
+                if(event.target.innerHTML == "4-2-3-1"){
+                    v_forch.classList.add("d-none");
+                    onoff = true;
+                    v_forma.innerHTML =v_formas[0].innerHTML + "&nbsp;&nbsp; ▼";
+                    f_df();
+                    f_mf();
+                    f_fw();
+                } else if(event.target.innerHTML == "4-3-3"){
+                    v_forch.classList.add("d-none");
+                    onoff = true;
+                    v_forma.innerHTML =v_formas[1].innerHTML + "&nbsp;&nbsp; ▼";
+                } else if(event.target.innerHTML =="4-1-4-1"){
+                    v_forch.classList.add("d-none");
+                    onoff = true;
+                    v_forma.innerHTML =v_formas[2].innerHTML + "&nbsp;&nbsp; ▼";
+                } else if(event.target.innerHTML == "4-2-1-3"){
+                    v_forch.classList.add("d-none");
+                    onoff = true;
+                    v_forma.innerHTML =v_formas[3].innerHTML + "&nbsp;&nbsp; ▼";
+                    f_df();
+                    f_mf();
+                    f_fw();
+                } else if(event.target.innerHTML == "5-2-3"){
+                    v_forch.classList.add("d-none");
+                    onoff = true;
+                    v_forma.innerHTML =v_formas[4].innerHTML + "&nbsp;&nbsp; ▼";
+                } else if(event.target.innerHTML == "3-4-3"){
+                    v_forch.classList.add("d-none");
+                    onoff = true;
+                    v_forma.innerHTML =v_formas[5].innerHTML + "&nbsp;&nbsp; ▼";
+                }
+            }
+
+            function f_df(){
+                if(event.target.innerHTML == "4-2-3-1" || event.target.innerHTML == "4-3-3" || event.target.innerHTML =="4-1-4-1" || event.target.innerHTML == "4-2-1-3"){
+                    v_player[1].style ="bottom: 10%; left: 5%; transform: translate(-50%,-50%);";
+                    v_player[2].style ="bottom: 5%; left: 35%; transform: translate(-50%,-50%);";
+                    v_player[3].style ="bottom: 5%; left: 65%; transform: translate(-50%,-50%);";
+                    v_player[4].style ="bottom: 10%; left: 95%; transform: translate(-50%,-50%);";
+                }   
+            }
+
+
+            function f_mf(){
+                if(event.target.innerHTML == "4-2-3-1"){
+                    v_player[5].style ="bottom: 30%; left: 30%; transform: translate(-50%,-50%);";
+                    v_player[6].style ="bottom: 30%; left: 70%;transform: translate(-50%,-50%);";
+                    v_player[7].style ="bottom: 55%; left: 15%;transform: translate(-50%,-50%);";
+                    v_player[8].style ="bottom: 50%; left: 50%; transform: translate(-50%,-50%);";
+                    v_player[9].style ="bottom: 55%; left: 85%; transform: translate(-50%,-50%);";
+                } else if(event.target.innerHTML == "4-3-3"){
+                    v_player[1].style ="bottom: 10%; left: 5%; transform: translate(-50%,-50%);";
+                    v_player[2].style ="bottom: 5%; left: 35%; transform: translate(-50%,-50%);";
+                    v_player[3].style ="bottom: 5%; left: 65%; transform: translate(-50%,-50%);";
+                } else if(event.target.innerHTML =="4-1-4-1"){
+                    v_player[1].style ="bottom: 10%; left: 5%; transform: translate(-50%,-50%);";
+                    v_player[2].style ="bottom: 5%; left: 35%; transform: translate(-50%,-50%);";
+                    v_player[3].style ="bottom: 5%; left: 65%; transform: translate(-50%,-50%);";
+                    v_player[4].style ="bottom: 10%; left: 95%; transform: translate(-50%,-50%);";
+                    v_player[4].style ="bottom: 10%; left: 95%; transform: translate(-50%,-50%);";
+                } else if(event.target.innerHTML == "4-2-1-3"){
+                    v_player[5].style ="bottom: 30%; left: 30%; transform: translate(-50%,-50%);";
+                    v_player[6].style ="bottom: 30%; left: 70%;transform: translate(-50%,-50%);";
+                    v_player[7].style ="bottom: 50%; left: 50%; transform: translate(-50%,-50%);";
+                }
+
+            }
+            function f_fw(){
+                if(event.target.innerHTML == "4-2-3-1"){
+                    v_player[10].style ="top: 0%; left: 50%; transform: translate(-50%,-50%);";
+                } else if(event.target.innerHTML == "4-3-3"){
+                    v_player[1].style ="bottom: 10%; left: 5%; transform: translate(-50%,-50%);";
+                    v_player[2].style ="bottom: 5%; left: 35%; transform: translate(-50%,-50%);";
+                    v_player[3].style ="bottom: 5%; left: 65%; transform: translate(-50%,-50%);";
+                } else if(event.target.innerHTML =="4-1-4-1"){
+                    v_player[1].style ="bottom: 10%; left: 5%; transform: translate(-50%,-50%);";
+                } else if(event.target.innerHTML == "4-2-1-3"){
+                    v_player[8].style ="bottom: 72%; left: 15%;transform: translate(-50%,-50%);";
+                    v_player[9].style ="bottom: 72%; left: 85%; transform: translate(-50%,-50%);";
+                    v_player[10].style = "top: 0%; left: 50%; transform: translate(-50%,-50%);";
+                }
+
+            }
+
+
+        </script>
 </body>
 
 </html>
