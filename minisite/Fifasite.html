@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Squadmaker</title>
     <style>
-        div {
-
-        }
+        div {}
 
         .container {
             width: 1200px;
@@ -100,7 +98,7 @@
             border-radius: 5px;
             width: 120px;
             height: 35px;
-            color:white;
+            color: white;
 
             display: flex;
             justify-content: center;
@@ -109,12 +107,12 @@
             cursor: pointer;
         }
 
-        .dropdown:hover{
+        .dropdown:hover {
             background-color: rgb(59, 57, 57);
         }
 
 
-        .formation-choice{
+        .formation-choice {
             width: 400px;
             height: 200px;
             display: flex;
@@ -122,14 +120,14 @@
             position: relative;
 
             z-index: 100;
-            
+
         }
 
-        .d-none{
+        .d-none {
             display: none;
         }
 
-        .formation-choice > div {
+        .formation-choice>div {
             width: calc(100% / 2 - 6px);
             height: calc(100% /3);
             background-color: gainsboro;
@@ -144,10 +142,10 @@
 
         }
 
-        .filed{
+        .filed {
             margin: 300px;
-            width:1000px;
-            height:1000px;
+            width: 1000px;
+            height: 1000px;
             border: 1px solid blue;
 
             position: absolute;
@@ -155,7 +153,7 @@
             display: flex;
         }
 
-        .filed > div {
+        .filed>div {
             width: 150px;
             height: 200px;
             border: 1px solid black;
@@ -168,85 +166,176 @@
             position: absolute;
             top: 100%;
             left: 50%;
-            transform: translate(-50%,-50%);
-            
-       
+            transform: translate(-50%, -50%);
+
+
         }
 
         #player2 {
             position: absolute;
             bottom: 10%;
             left: 5%;
-            transform: translate(-50%,-50%);
-            
+            transform: translate(-50%, -50%);
+
         }
 
         #player3 {
             position: absolute;
             bottom: 5%;
             left: 35%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
 
-            
+
         }
 
         #player4 {
             position: absolute;
             bottom: 5%;
             left: 65%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
         }
 
         #player5 {
             position: absolute;
             bottom: 10%;
             left: 95%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
         }
 
         #player6 {
             position: absolute;
             bottom: 30%;
             left: 30%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
         }
 
         #player7 {
             position: absolute;
             bottom: 30%;
             left: 70%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
         }
 
         #player8 {
             position: absolute;
             bottom: 55%;
             left: 15%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
         }
 
         #player9 {
             position: absolute;
             bottom: 50%;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
         }
 
         #player10 {
             position: absolute;
             bottom: 55%;
             left: 85%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
         }
 
         #player11 {
             position: absolute;
             top: 0%;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
         }
 
+        .modal {
+            position: absolute;
+            margin: 200px;
+            width: 800px;
+            height: 1000px;
+            border: 1px solid black;
+            background-color: white;
+            z-index: 120;
 
+        }
+
+        .modal-header{
+            text-align: end;
+        }
+        .modal>div {
+            border: 1px solid red;
+        }
+
+        .slot {
+            width: 100%;
+            height: 5%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .slot>div {
+            width: calc(100% / 4);
+            height: 100%;
+            text-align: center;
+
+        }
+
+        .p-name {
+            width: 100%;
+            height: 90%;
+            position: relative;
+            background-color: white;
+
+            overflow-y: scroll;
+        }
+
+        .fw_menu {
+            flex-wrap: wrap;
+            position: absolute;
+
+        }
+
+        .fw_menu>div {
+            height: 200px;
+            width: 99%;
+            border: 1px solid black;
+        }
+
+        .mf_menu {
+            flex-wrap: wrap;
+            position: absolute;
+        }
+
+        .mf_menu>div {
+            height: 200px;
+            width: 99%;
+            border: 1px solid black;
+        }
+
+        .df_menu {
+            flex-wrap: wrap;
+            position: absolute;
+        }
+
+        .df_menu>div {
+            height: 200px;
+            width: 99%;
+            border: 1px solid black;
+        }
+
+        .gk_menu {
+            flex-wrap: wrap;
+            position: absolute;
+        }
+
+        .gk_menu>div {
+            height: 200px;
+            width: 99%;
+            border: 1px solid black;
+        }
+
+        .d-none{
+            display: none;
+        }
     </style>
 </head>
 
@@ -289,139 +378,351 @@
                 </div>
             </div>
         </div>
-            <div class="formation">
-                <div class="dropdown" onclick="f_btn()">포메이션 &nbsp;&nbsp; ▼</div>
-                <div class="formation-choice d-none">
-                    <div class="position" value="4-2-3-1" onclick="f_for()">4-2-3-1</div>
-                    <div class="position" value="4-3-3" onclick="f_for()">4-3-3</div>
-                    <div class="position" value="4-1-4-1" onclick="f_for()">4-1-4-1</div>
-                    <div class="position" value="4-2-1-3" onclick="f_for()">4-2-1-3</div>
-                    <div class="position" value="5-2-3" onclick="f_for()">5-2-3</div>
-                    <div class="position" value="3-4-3" onclick="f_for()">3-4-3</div>
+        <div class="formation">
+            <div class="modal d-none">
+                <div class="modal-header">
+                    <img width="40" height="40" onclick="f_close()"
+                        src="../resources/images/icon-close-512.webp" alt="">
                 </div>
-                <div class="filed">
-                    <div class="player" id="player1">1</div>
-                    <div class="player" id="player2">2</div>
-                    <div class="player" id="player3">3</div>
-                    <div class="player" id="player4">4</div>
-                    <div class="player" id="player5">5</div>
-                    <div class="player" id="player6">6</div>
-                    <div class="player" id="player7">7</div>
-                    <div class="player" id="player8">8</div>
-                    <div class="player" id="player9">9</div>
-                    <div class="player" id="player10">10</div>
-                    <div class="player" id="player11">11</div>
+                <div class="slot">
+                    <div class="slotbtn" value="fw" onclick="f_slotbtn()" style="background-color: rgb(247, 123, 123);">FW</div>
+                    <div class="slotbtn" value="mf" onclick="f_slotbtn()" style="background-color: greenyellow;">MF</div>
+                    <div class="slotbtn" value="df" onclick="f_slotbtn()" style="background-color: skyblue;">DF</div>
+                    <div class="slotbtn" value="gk" onclick="f_slotbtn()" style="background-color: goldenrod;">GK</div>
+                </div>
+                <div class="p-name">
+                    <div class="fw_menu">
+                        <div>
+                            <div>
+                                <img width="200px" height="200px" style=" text-align: end;"
+                                    src="https://images.chosun.com/resizer/benjzzsw2nl4I8hdVfgFWUpgSsY=/616x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/QTSLW42C4RGFPE2WEY2BTL22LE.jpg"
+                                    alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mf_menu">
+                        <div>
+                            <div>
+                                <img width="200px" height="200px"
+                                    src="https://menu.moneys.co.kr/moneyweek/thumb/2020/02/12/06/2020021215008051718_2.jpg/dims/optimize/"
+                                    alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="df_menu">
+                        <div>
+                            <div>
+                                <img width="200px" height="200px"
+                                    src="https://i.namu.wiki/i/CM0-zaJY8hmRo1bRuIbKF_oKRFOKuP6B8xooOZAlZ-nPhrlKsP_WXMKv7I3VDwI9hM51SuHQ1pYcEOoBTbta3A.webp"
+                                    alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gk_menu">
+                        <div>
+                            <div>
+                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                            </div>
+                            <div></div>
+                        </div>
+                        <div>
+                            <div>
+                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
+            <div class="dropdown" onclick="f_btn()">포메이션 &nbsp;&nbsp; ▼</div>
+            <div class="formation-choice d-none">
+                <div class="position" value="4-2-3-1" onclick="f_for()">4-2-3-1</div>
+                <div class="position" value="4-3-3" onclick="f_for()">4-3-3</div>
+                <div class="position" value="4-1-4-1" onclick="f_for()">4-1-4-1</div>
+                <div class="position" value="4-2-1-3" onclick="f_for()">4-2-1-3</div>
+                <div class="position" value="5-2-3" onclick="f_for()">5-2-3</div>
+                <div class="position" value="3-4-3" onclick="f_for()">3-4-3</div>
+            </div>
+            <div class="filed">
+                <div class="player" id="player1" onclick="f_modal()">1</div>
+                <div class="player" id="player2" onclick="f_modal()">2</div>
+                <div class="player" id="player3" onclick="f_modal()">3</div>
+                <div class="player" id="player4" onclick="f_modal()">4</div>
+                <div class="player" id="player5" onclick="f_modal()">5</div>
+                <div class="player" id="player6" onclick="f_modal()">6</div>
+                <div class="player" id="player7" onclick="f_modal()">7</div>
+                <div class="player" id="player8" onclick="f_modal()">8</div>
+                <div class="player" id="player9" onclick="f_modal()">9</div>
+                <div class="player" id="player10" onclick="f_modal()">10</div>
+                <div class="player" id="player11" onclick="f_modal()">11</div>
+            </div>
         </div>
 
-        <script>
-            const v_forma = document.getElementsByClassName("dropdown")[0];
-            const v_forch = document.getElementsByClassName("formation-choice")[0];
-            const v_formas = document.getElementsByClassName("position");
-            const v_player = document.getElementsByClassName("player");
+    </div>
 
-            let onoff = true;
-            function f_btn(){
-                if(onoff){
-                    v_forch.classList.remove("d-none");
-                    onoff = false;
-                    v_forma.innerHTML="포메이션 &nbsp;&nbsp; ▲";
-                } else if(onoff){
-                    v_forch.classList.add("d-none");
-                    onoff = true;
-                    v_forma.innerHTML="포메이션 &nbsp;&nbsp; ▼";
-                }
+    <script>
+        const v_forma = document.getElementsByClassName("dropdown")[0];
+        const v_forch = document.getElementsByClassName("formation-choice")[0];
+        const v_formas = document.getElementsByClassName("position");
+        const v_player = document.getElementsByClassName("player");
+        const v_slot = document.getElementsByClassName("slotbtn");
+        const v_fwmenu = document.getElementsByClassName("fw_menu")[0];
+        const v_mfmenu = document.getElementsByClassName("mf_menu")[0];
+        const v_dfmenu = document.getElementsByClassName("df_menu")[0];
+        const v_gkmenu = document.getElementsByClassName("gk_menu")[0];
+        const v_modal = document.getElementsByClassName("modal")[0];
+
+        let onoff = true;
+        function f_btn() {
+            if (onoff) {
+                v_forch.classList.remove("d-none");
+                onoff = false;
+                v_forma.innerHTML = "포메이션 &nbsp;&nbsp; ▲";
+            } else if (onoff) {
+                v_forch.classList.add("d-none");
+                onoff = true;
+                v_forma.innerHTML = "포메이션 &nbsp;&nbsp; ▼";
+            }
+        }
+
+        function f_for() {
+            if (event.target.innerHTML == "4-2-3-1") {
+                v_forch.classList.add("d-none");
+                onoff = true;
+                v_forma.innerHTML = v_formas[0].innerHTML + "&nbsp;&nbsp; ▼";
+                f_position()
+            } else if (event.target.innerHTML == "4-3-3") {
+                v_forch.classList.add("d-none");
+                onoff = true;
+                v_forma.innerHTML = v_formas[1].innerHTML + "&nbsp;&nbsp; ▼";
+                f_position()
+            } else if (event.target.innerHTML == "4-1-4-1") {
+                v_forch.classList.add("d-none");
+                onoff = true;
+                v_forma.innerHTML = v_formas[2].innerHTML + "&nbsp;&nbsp; ▼";
+                f_position()
+            } else if (event.target.innerHTML == "4-2-1-3") {
+                v_forch.classList.add("d-none");
+                onoff = true;
+                v_forma.innerHTML = v_formas[3].innerHTML + "&nbsp;&nbsp; ▼";
+                f_position()
+            } else if (event.target.innerHTML == "5-2-3") {
+                v_forch.classList.add("d-none");
+                onoff = true;
+                v_forma.innerHTML = v_formas[4].innerHTML + "&nbsp;&nbsp; ▼";
+                f_position()
+            } else if (event.target.innerHTML == "3-4-3") {
+                v_forch.classList.add("d-none");
+                onoff = true;
+                v_forma.innerHTML = v_formas[5].innerHTML + "&nbsp;&nbsp; ▼";
+                f_position()
             }
 
-            function f_for(){
-                if(event.target.innerHTML == "4-2-3-1"){
-                    v_forch.classList.add("d-none");
-                    onoff = true;
-                    v_forma.innerHTML =v_formas[0].innerHTML + "&nbsp;&nbsp; ▼";
-                    f_df();
-                    f_mf();
-                    f_fw();
-                } else if(event.target.innerHTML == "4-3-3"){
-                    v_forch.classList.add("d-none");
-                    onoff = true;
-                    v_forma.innerHTML =v_formas[1].innerHTML + "&nbsp;&nbsp; ▼";
-                } else if(event.target.innerHTML =="4-1-4-1"){
-                    v_forch.classList.add("d-none");
-                    onoff = true;
-                    v_forma.innerHTML =v_formas[2].innerHTML + "&nbsp;&nbsp; ▼";
-                } else if(event.target.innerHTML == "4-2-1-3"){
-                    v_forch.classList.add("d-none");
-                    onoff = true;
-                    v_forma.innerHTML =v_formas[3].innerHTML + "&nbsp;&nbsp; ▼";
-                    f_df();
-                    f_mf();
-                    f_fw();
-                } else if(event.target.innerHTML == "5-2-3"){
-                    v_forch.classList.add("d-none");
-                    onoff = true;
-                    v_forma.innerHTML =v_formas[4].innerHTML + "&nbsp;&nbsp; ▼";
-                } else if(event.target.innerHTML == "3-4-3"){
-                    v_forch.classList.add("d-none");
-                    onoff = true;
-                    v_forma.innerHTML =v_formas[5].innerHTML + "&nbsp;&nbsp; ▼";
-                }
+        }
+
+        function f_close(){
+            v_modal.classList.add("d-none");
+        }
+
+        function f_slotbtn() {
+            if (event.target.innerHTML == "FW") {
+                v_fwmenu.style = "z-index: 200";
+                v_mfmenu.style = "z-index: 0";
+                v_dfmenu.style = "z-index: 0";
+                v_gkmenu.style = "z-index: 0";
+            } else if (event.target.innerHTML == "MF") {
+                v_mfmenu.style = "z-index: 200";
+                v_fwmenu.style = "z-index: 0";
+                v_dfmenu.style = "z-index: 0";
+                v_gkmenu.style = "z-index: 0";
+            } else if (event.target.innerHTML == "DF") {
+                v_dfmenu.style = "z-index: 200";
+                v_fwmenu.style = "z-index:0";
+                v_mfmenu.style = "z-index:0";
+                v_gkmenu.style = "z-index:0";
+            } else if (event.target.innerHTML == "GK") {
+                v_gkmenu.style = "z-index: 200";
+                v_fwmenu.style = "z-index: 0";
+                v_dfmenu.style = "z-index: 0";
+                v_mfmenu.style = "z-index: 0";
             }
-
-            function f_df(){
-                if(event.target.innerHTML == "4-2-3-1" || event.target.innerHTML == "4-3-3" || event.target.innerHTML =="4-1-4-1" || event.target.innerHTML == "4-2-1-3"){
-                    v_player[1].style ="bottom: 10%; left: 5%; transform: translate(-50%,-50%);";
-                    v_player[2].style ="bottom: 5%; left: 35%; transform: translate(-50%,-50%);";
-                    v_player[3].style ="bottom: 5%; left: 65%; transform: translate(-50%,-50%);";
-                    v_player[4].style ="bottom: 10%; left: 95%; transform: translate(-50%,-50%);";
-                }   
-            }
+            console.log(event.target.innerHTML);
+        }
 
 
-            function f_mf(){
-                if(event.target.innerHTML == "4-2-3-1"){
-                    v_player[5].style ="bottom: 30%; left: 30%; transform: translate(-50%,-50%);";
-                    v_player[6].style ="bottom: 30%; left: 70%;transform: translate(-50%,-50%);";
-                    v_player[7].style ="bottom: 55%; left: 15%;transform: translate(-50%,-50%);";
-                    v_player[8].style ="bottom: 50%; left: 50%; transform: translate(-50%,-50%);";
-                    v_player[9].style ="bottom: 55%; left: 85%; transform: translate(-50%,-50%);";
-                } else if(event.target.innerHTML == "4-3-3"){
-                    v_player[1].style ="bottom: 10%; left: 5%; transform: translate(-50%,-50%);";
-                    v_player[2].style ="bottom: 5%; left: 35%; transform: translate(-50%,-50%);";
-                    v_player[3].style ="bottom: 5%; left: 65%; transform: translate(-50%,-50%);";
-                } else if(event.target.innerHTML =="4-1-4-1"){
-                    v_player[1].style ="bottom: 10%; left: 5%; transform: translate(-50%,-50%);";
-                    v_player[2].style ="bottom: 5%; left: 35%; transform: translate(-50%,-50%);";
-                    v_player[3].style ="bottom: 5%; left: 65%; transform: translate(-50%,-50%);";
-                    v_player[4].style ="bottom: 10%; left: 95%; transform: translate(-50%,-50%);";
-                    v_player[4].style ="bottom: 10%; left: 95%; transform: translate(-50%,-50%);";
-                } else if(event.target.innerHTML == "4-2-1-3"){
-                    v_player[5].style ="bottom: 30%; left: 30%; transform: translate(-50%,-50%);";
-                    v_player[6].style ="bottom: 30%; left: 70%;transform: translate(-50%,-50%);";
-                    v_player[7].style ="bottom: 50%; left: 50%; transform: translate(-50%,-50%);";
-                }
+        function f_modal(){
+            v_modal.classList.remove("d-none");
+        }
 
-            }
-            function f_fw(){
-                if(event.target.innerHTML == "4-2-3-1"){
-                    v_player[10].style ="top: 0%; left: 50%; transform: translate(-50%,-50%);";
-                } else if(event.target.innerHTML == "4-3-3"){
-                    v_player[1].style ="bottom: 10%; left: 5%; transform: translate(-50%,-50%);";
-                    v_player[2].style ="bottom: 5%; left: 35%; transform: translate(-50%,-50%);";
-                    v_player[3].style ="bottom: 5%; left: 65%; transform: translate(-50%,-50%);";
-                } else if(event.target.innerHTML =="4-1-4-1"){
-                    v_player[1].style ="bottom: 10%; left: 5%; transform: translate(-50%,-50%);";
-                } else if(event.target.innerHTML == "4-2-1-3"){
-                    v_player[8].style ="bottom: 72%; left: 15%;transform: translate(-50%,-50%);";
-                    v_player[9].style ="bottom: 72%; left: 85%; transform: translate(-50%,-50%);";
-                    v_player[10].style = "top: 0%; left: 50%; transform: translate(-50%,-50%);";
-                }
+
+
+
+
+
+
+
+
+
+        function f_position() {
+            f_df();
+            f_mf();
+            f_fw();
+
+        }
+
+        function f_df() {
+            if (event.target.innerHTML == "4-2-3-1" || event.target.innerHTML == "4-3-3" || event.target.innerHTML == "4-1-4-1" || event.target.innerHTML == "4-2-1-3") {
+                v_player[1].style = "bottom: 10%; left: 5%; transform: translate(-50%,-50%);";
+                v_player[2].style = "bottom: 5%; left: 35%; transform: translate(-50%,-50%);";
+                v_player[3].style = "bottom: 5%; left: 65%; transform: translate(-50%,-50%);";
+                v_player[4].style = "bottom: 10%; left: 95%; transform: translate(-50%,-50%);";
+            } else if (event.target.innerHTML == "5-2-3") {
+                v_player[1].style = "bottom: 10%; left: 5%; transform: translate(-50%,-50%);";
+                v_player[2].style = "bottom: 2%; left: 25%; transform: translate(-50%,-50%);";
+                v_player[3].style = "bottom: 2%; left: 75%; transform: translate(-50%,-50%);";
+                v_player[4].style = "bottom: 10%; left: 95%; transform: translate(-50%,-50%);";
+                v_player[5].style = "bottom: 15%; left: 50%; transform: translate(-50%,-50%);";
+            } else if (event.target.innerHTML == "3-4-3") {
+                v_player[1].style = "bottom: 2%; left: 20%; transform: translate(-50%,-50%);";
+                v_player[2].style = "bottom: 2%; left: 80%; transform: translate(-50%,-50%);";
+                v_player[3].style = "bottom: 5%; left: 50%; transform: translate(-50%,-50%);";
 
             }
+        }
 
 
-        </script>
+        function f_mf() {
+            if (event.target.innerHTML == "4-2-3-1") {
+                v_player[5].style = "bottom: 30%; left: 30%; transform: translate(-50%,-50%);";
+                v_player[6].style = "bottom: 30%; left: 70%;transform: translate(-50%,-50%);";
+                v_player[7].style = "bottom: 55%; left: 15%;transform: translate(-50%,-50%);";
+                v_player[8].style = "bottom: 50%; left: 50%; transform: translate(-50%,-50%);";
+                v_player[9].style = "bottom: 55%; left: 85%; transform: translate(-50%,-50%);";
+            } else if (event.target.innerHTML == "4-3-3") {
+                v_player[5].style = "bottom: 40%; left: 20%; transform: translate(-50%,-50%);";
+                v_player[6].style = "bottom: 40%; left: 80%; transform: translate(-50%,-50%);";
+                v_player[7].style = "bottom: 40%; left: 50%; transform: translate(-50%,-50%);";
+            } else if (event.target.innerHTML == "4-1-4-1") {
+                v_player[5].style = "bottom: 30%; left: 50%; transform: translate(-50%,-50%);";
+                v_player[6].style = "bottom: 60%; left: 0%; transform: translate(-50%,-50%);";
+                v_player[7].style = "bottom: 50%; left: 30%; transform: translate(-50%,-50%);";
+                v_player[8].style = "bottom: 50%; left: 70%; transform: translate(-50%,-50%);";
+                v_player[9].style = "bottom: 60%; left: 100%; transform: translate(-50%,-50%);";
+            } else if (event.target.innerHTML == "4-2-1-3") {
+                v_player[5].style = "bottom: 30%; left: 30%; transform: translate(-50%,-50%);";
+                v_player[6].style = "bottom: 30%; left: 70%;transform: translate(-50%,-50%);";
+                v_player[7].style = "bottom: 50%; left: 50%; transform: translate(-50%,-50%);";
+            } else if (event.target.innerHTML == "5-2-3") {
+                v_player[6].style = "bottom: 45%; left: 30%; transform: translate(-50%,-50%);";
+                v_player[7].style = "bottom: 45%; left: 70%;transform: translate(-50%,-50%);";
+            } else if (event.target.innerHTML == "3-4-3") {
+                v_player[4].style = "bottom: 40%; left: 5%; transform: translate(-50%,-50%);";
+                v_player[5].style = "bottom: 35%; left: 35%; transform: translate(-50%,-50%);";
+                v_player[6].style = "bottom: 35%; left: 65%; transform: translate(-50%,-50%);";
+                v_player[7].style = "bottom: 40%; left: 95%; transform: translate(-50%,-50%);";
+            }
+        }
+        function f_fw() {
+            if (event.target.innerHTML == "4-2-3-1") {
+                v_player[10].style = "top: 0%; left: 50%; transform: translate(-50%,-50%);";
+            } else if (event.target.innerHTML == "4-3-3") {
+                v_player[8].style = "bottom: 70%; left: 15%; transform: translate(-50%,-50%);";
+                v_player[9].style = "bottom: 70%; left: 85%; transform: translate(-50%,-50%);";
+                v_player[10].style = "top: 5%; left: 50%; transform: translate(-50%,-50%);";
+            } else if (event.target.innerHTML == "4-1-4-1") {
+                v_player[10].style = "top: 0%; left: 50%; transform: translate(-50%,-50%);";
+            } else if (event.target.innerHTML == "4-2-1-3") {
+                v_player[8].style = "bottom: 72%; left: 15%;transform: translate(-50%,-50%);";
+                v_player[9].style = "bottom: 72%; left: 85%; transform: translate(-50%,-50%);";
+                v_player[10].style = "top: 0%; left: 50%; transform: translate(-50%,-50%);";
+            } else if (event.target.innerHTML == "5-2-3") {
+                v_player[8].style = "bottom: 70%; left: 15%; transform: translate(-50%,-50%);";
+                v_player[9].style = "bottom: 70%; left: 85%; transform: translate(-50%,-50%);";
+                v_player[10].style = "top: 5%; left: 50%; transform: translate(-50%,-50%);";
+            } else if (event.target.innerHTML == "3-4-3") {
+                v_player[8].style = "bottom: 70%; left: 15%; transform: translate(-50%,-50%);";
+                v_player[9].style = "bottom: 70%; left: 85%; transform: translate(-50%,-50%);";
+                v_player[10].style = "top: 5%; left: 50%; transform: translate(-50%,-50%);";
+            }
+
+        }
+
+
+    </script>
 </body>
 
 </html>
