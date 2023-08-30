@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>더미데이터</title>
+</head>
+<body>
+    <script>
+            //게시글의 데이터 구조 글번호, 글제목, 작성자, 글내용
+
+            let v_datas = [];
+            
+            let v_json={};
+            v_json["no"] = 1111;
+            v_json["title"] = "학원 근처 갈만한 식당 추천";
+            v_json["id"] = "a001";
+            v_json["content"] = "점심시간에 메뉴를 고르다가 점심시간이 끝남"
+            
+            v_datas.push(v_json);
+
+            v_json = {};
+            v_json["no"] = 1112;
+            v_json["title"] = "집에 보내줘 제발";
+            v_json["id"] = "b001";
+            v_json["content"] = "너무 졸려요 ㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠ"
+
+            v_datas.push(v_json);
+            
+            v_json = {};
+            v_json["no"] = 1113;
+            v_json["title"] = "aaaaaaaaaaaaaaaaaaaa";
+            v_json["id"] = "c001";
+            v_json["content"] = "aaaaaaaaaaaaaaaaaaaaaaa"
+
+            v_datas.push(v_json);
+
+            v_json = {};
+            v_json["no"] = 1114;
+            v_json["title"] = "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb";
+            v_json["id"] = "d001";
+            v_json["content"] = "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+
+            v_datas.push(v_json);
+
+            v_json = {};
+            v_json["no"] = 1115;
+            v_json["title"] = "ccccccccccccccccccccccccccccccccccccccccc";
+            v_json["id"] = "f001";
+            v_json["content"] = "cccccccccccccccccccccccccccccccccccccc"
+
+            v_datas.push(v_json);
+
+            localStorage.setItem("boardDB",JSON.stringify(v_datas));
+
+            document.write("생성완료");
+    </script>
+    
+</body>
+</html>

@@ -59,6 +59,12 @@
             text-align: center;
         }
 
+        .filed {
+            margin-top: 100px;
+
+            position: absolute;
+        }
+
 
 
 
@@ -83,6 +89,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        .stat>div:hover {
+            filter: brightness(-50%);
         }
 
         .formation {
@@ -142,24 +152,28 @@
 
         }
 
-        .filed {
+        .play {
             margin: 300px;
             width: 1000px;
             height: 1000px;
-            border: 1px solid blue;
 
             position: absolute;
             z-index: 50;
             display: flex;
         }
 
-        .filed>div {
+        .play>div {
             width: 150px;
             height: 200px;
             border: 1px solid black;
             background-color: white;
 
             z-index: 70;
+        }
+
+        .play>div:hover {
+            filter: brightness(70%);
+
         }
 
         #player1 {
@@ -255,12 +269,11 @@
 
         }
 
-        .modal-header{
+        .modal-header {
             text-align: end;
         }
-        .modal>div {
-            border: 1px solid red;
-        }
+
+        .modal>div {}
 
         .slot {
             width: 100%;
@@ -271,6 +284,8 @@
             align-items: center;
             position: relative;
         }
+
+
 
         .slot>div {
             width: calc(100% / 4);
@@ -297,8 +312,28 @@
         .fw_menu>div {
             height: 200px;
             width: 99%;
-            border: 1px solid black;
+            background-color: white;
+
+            display: flex;
+
         }
+
+        .fw_menu>div:hover {
+            filter: brightness(70%);
+        }
+
+        .mf_menu>div:hover {
+            filter: brightness(70%);
+        }
+
+        .df_menu>div:hover {
+            filter: brightness(70%);
+        }
+
+        .gk_menu>div:hover {
+            filter: brightness(70%);
+        }
+
 
         .mf_menu {
             flex-wrap: wrap;
@@ -333,8 +368,29 @@
             border: 1px solid black;
         }
 
-        .d-none{
+        .d-none {
             display: none;
+        }
+
+        .explain {
+            width: 800px;
+            height: 200px;
+            border: 1px solid blue;
+
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+
+        .player>img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .p-name div>img {
+            width: 200px;
+            height: 200px;
+            text-align: end;
         }
     </style>
 </head>
@@ -381,8 +437,8 @@
         <div class="formation">
             <div class="modal d-none">
                 <div class="modal-header">
-                    <img width="40" height="40" onclick="f_close()"
-                        src="../resources/images/icon-close-512.webp" alt="">
+                    <img width="40" height="40" onclick="f_close()" src="../resources/images/icon-close-512.webp"
+                        alt="">
                 </div>
                 <div class="slot">
                     <div class="slotbtn" value="fw" onclick="f_slotbtn()" style="background-color: rgb(247, 123, 123);">FW</div>
@@ -394,116 +450,153 @@
                     <div class="fw_menu">
                         <div>
                             <div>
-                                <img width="200px" height="200px" style=" text-align: end;"
+                                <img onclick="f_input()"
                                     src="https://images.chosun.com/resizer/benjzzsw2nl4I8hdVfgFWUpgSsY=/616x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/QTSLW42C4RGFPE2WEY2BTL22LE.jpg"
                                     alt="">
+                                <div style="width:600px; height: 200px; border:1px solid skyblue;"></div>
                             </div>
                         </div>
                         <div>
                             <div>
-                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                                <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA3MDVfMTI2%2FMDAxNjI1NDQ5MzU3MDA2.dMhE3nIrGRtgAl7VUGE9lZ1CLWJDJAHK43kLVlkwM5sg.Ztr_BLw6TW0xOhZ5G7qViE18jUYzCmWkGwvyPvIKjm8g.JPEG.hdgnolof71%2F008.jpg&type=sc960_832"
+                                    onclick="f_input()" alt="">
                             </div>
+                            <div style="width:600px; height: 200px; border:1px solid skyblue;"></div>
                         </div>
                         <div>
                             <div>
-                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                                <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5244%2F2020%2F07%2F07%2F0000305113_001_20200707071812212.jpg&type=sc960_832"
+                                    onclick="f_input()" alt="">
                             </div>
+                            <div style="width:600px; height: 200px; border:1px solid skyblue;"></div>
                         </div>
                         <div>
                             <div>
-                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                                <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F088%2F2023%2F06%2F20%2F0000820702_001_20230620201601182.jpg&type=sc960_832"
+                                    onclick="f_input()" alt="">
                             </div>
+                            <div style="width:600px; height: 200px; border:1px solid skyblue;"></div>
                         </div>
                         <div>
                             <div>
-                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                                <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F382%2F2023%2F06%2F09%2F0001056163_001_20230609142801401.jpg&type=sc960_832"
+                                    onclick="f_input()" alt="">
                             </div>
+                            <div style="width:600px; height: 200px; border:1px solid skyblue;"></div>
                         </div>
                     </div>
                     <div class="mf_menu">
                         <div>
                             <div>
-                                <img width="200px" height="200px"
+                                <img width="200px" height="200px" onclick="f_input()"
                                     src="https://menu.moneys.co.kr/moneyweek/thumb/2020/02/12/06/2020021215008051718_2.jpg/dims/optimize/"
                                     alt="">
                             </div>
+                            <div style="width:600px; height: 200px; border:1px solid skyblue;"></div>
                         </div>
                         <div>
                             <div>
-                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                                <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjEyMTdfODAg%2FMDAxNjcxMjQ0OTYzNDk1.eBGiL19aVBmUDmt-hgk9aKBKovxSVy6yrf1iKtEudEMg.msh7aTwe-Rhn2oYM8OGbMFFTwvINXaJtrBlxFK70LrIg.JPEG.kimie1129%2F4.jpg&type=sc960_832"
+                                    onclick="f_input()" alt="">
                             </div>
+                            <div style="width:600px; height: 200px; border:1px solid skyblue;"></div>
                         </div>
                         <div>
                             <div>
-                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                                <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F477%2F2022%2F12%2F07%2F0000398896_001_20221207204602483.jpg&type=sc960_832"
+                                    onclick="f_input()" alt="">
                             </div>
+                            <div style="width:600px; height: 200px; border:1px solid skyblue;"></div>
                         </div>
                         <div>
                             <div>
-                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                                <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5753%2F2023%2F06%2F27%2F0000022306_001_20230627092602957.jpg&type=sc960_832"
+                                    onclick="f_input()" alt="">
                             </div>
+                            <div style="width:600px; height: 200px; border:1px solid skyblue;"></div>
                         </div>
                         <div>
                             <div>
-                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                                <img src="https://search.pstatic.net/sunny/?src=http%3A%2F%2Ffile.osen.co.kr%2Farticle%2F2022%2F12%2F06%2F202212061028779415_638e9c978f61a.jpeg&type=sc960_832"
+                                    onclick="f_input()" alt="">
                             </div>
+                            <div style="width:600px; height: 200px; border:1px solid skyblue;"></div>
                         </div>
                     </div>
                     <div class="df_menu">
                         <div>
                             <div>
-                                <img width="200px" height="200px"
+                                <img width="200px" height="200px" onclick="f_input()"
                                     src="https://i.namu.wiki/i/CM0-zaJY8hmRo1bRuIbKF_oKRFOKuP6B8xooOZAlZ-nPhrlKsP_WXMKv7I3VDwI9hM51SuHQ1pYcEOoBTbta3A.webp"
                                     alt="">
                             </div>
+                            <div style="width:600px; height: 200px; border:1px solid skyblue;"></div>
                         </div>
                         <div>
                             <div>
-                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                                <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F477%2F2022%2F08%2F02%2F0000374063_001_20220802093602798.jpg&type=sc960_832"
+                                    onclick="f_input()" alt="">
                             </div>
+                            <div style="width:600px; height: 200px; border:1px solid skyblue;"></div>
                         </div>
                         <div>
                             <div>
-                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                                <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTEyMzFfOTcg%2FMDAxNjQwODgzMjM4ODAy.JNQMzoMHLlW8DaC89X4bUrhliVVhpCSOhckvWmBvzukg.DEJpeW89yvdZu8yoQ-kEA6a4K0x66OcK0xFJhR0MgRAg.PNG.mark_420%2Fdfl-obj-0027kl-dfl-clu-00000g-dfl-sea-0001k5.png&type=sc960_832"
+                                    onclick="f_input()" alt="">
                             </div>
+                            <div style="width:600px; height: 200px; border:1px solid skyblue;"></div>
                         </div>
                         <div>
                             <div>
-                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                                <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fpost.phinf.naver.net%2FMjAyMjA3MTJfNjQg%2FMDAxNjU3NjEwMDcyMTkz.9Xzq6bkucLMfysnZHHUoz9VNVWFa2NIH33lbDmJYVRQg.jewNQUbBjksc8XMFJtU_GJjmkl1oXQIVqlty1YESViAg.JPEG%2FIRTX6vnvHwNQh7FwliZMY9isjvmU.jpg&type=sc960_832"
+                                    onclick="f_input()" alt="">
                             </div>
+                            <div style="width:600px; height: 200px; border:1px solid skyblue;"></div>
                         </div>
                         <div>
                             <div>
-                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                                <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2F20100525_157%2Fmo5417_1274777368361_h46A15_jpg%2F2010-05-25%252B17%25253B42%25253B48_2.jpg&type=sc960_832"
+                                    onclick="f_input()" alt="">
                             </div>
+                            <div style="width:600px; height: 200px; border:1px solid skyblue;"></div>
                         </div>
                     </div>
                     <div class="gk_menu">
                         <div>
                             <div>
-                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                                <img src="https://www.thechooeok.com/common/img/default_profile.png" onclick="f_input()"
+                                    alt="">
                             </div>
+                            <div style="width:600px; height: 200px; border:1px solid skyblue;"></div>
                             <div></div>
                         </div>
                         <div>
                             <div>
-                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                                <img src="https://www.thechooeok.com/common/img/default_profile.png" onclick="f_input()"
+                                    alt="">
                             </div>
+                            <div style="width:600px; height: 200px; border:1px solid skyblue;"></div>
                         </div>
                         <div>
                             <div>
-                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                                <img src="https://www.thechooeok.com/common/img/default_profile.png" onclick="f_input()"
+                                    alt="">
                             </div>
+                            <div style="width:600px; height: 200px; border:1px solid skyblue;"></div>
                         </div>
                         <div>
                             <div>
-                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                                <img src="https://www.thechooeok.com/common/img/default_profile.png" onclick="f_input()"
+                                    alt="">
                             </div>
+                            <div style="width:600px; height: 200px; border:1px solid skyblue;"></div>
                         </div>
                         <div>
                             <div>
-                                <img src="https://www.thechooeok.com/common/img/default_profile.png" alt="">
+                                <img src="https://www.thechooeok.com/common/img/default_profile.png" onclick="f_input()"
+                                    alt="">
                             </div>
+                            <div style="width:600px; height: 200px; border:1px solid skyblue;"></div>
                         </div>
                     </div>
                 </div>
@@ -518,17 +611,22 @@
                 <div class="position" value="3-4-3" onclick="f_for()">3-4-3</div>
             </div>
             <div class="filed">
-                <div class="player" id="player1" onclick="f_modal()">1</div>
-                <div class="player" id="player2" onclick="f_modal()">2</div>
-                <div class="player" id="player3" onclick="f_modal()">3</div>
-                <div class="player" id="player4" onclick="f_modal()">4</div>
-                <div class="player" id="player5" onclick="f_modal()">5</div>
-                <div class="player" id="player6" onclick="f_modal()">6</div>
-                <div class="player" id="player7" onclick="f_modal()">7</div>
-                <div class="player" id="player8" onclick="f_modal()">8</div>
-                <div class="player" id="player9" onclick="f_modal()">9</div>
-                <div class="player" id="player10" onclick="f_modal()">10</div>
-                <div class="player" id="player11" onclick="f_modal()">11</div>
+                <img width="1000px" height="1400px" style="margin-bottom:1000px"
+                    src="https://png.pngtree.com/thumb_back/fw800/back_our/20200817/ourmid/pngtree-football-field-grass-texture-background-png-image_393704.jpg"
+                    alt="">
+            </div>
+            <div class="play">
+                <div class="player" id="player1" onclick="f_modal()">1<img src="" alt=""></div>
+                <div class="player" id="player2" onclick="f_modal()">2<img src="" alt=""></div>
+                <div class="player" id="player3" onclick="f_modal()">3<img src="" alt=""></div>
+                <div class="player" id="player4" onclick="f_modal()">4<img src="" alt=""></div>
+                <div class="player" id="player5" onclick="f_modal()">5<img src="" alt=""></div>
+                <div class="player" id="player6" onclick="f_modal()">6<img src="" alt=""></div>
+                <div class="player" id="player7" onclick="f_modal()">7<img src="" alt=""></div>
+                <div class="player" id="player8" onclick="f_modal()">8<img src="" alt=""></div>
+                <div class="player" id="player9" onclick="f_modal()">9<img src="" alt=""></div>
+                <div class="player" id="player10" onclick="f_modal()">10<img src="" alt=""></div>
+                <div class="player" id="player11" onclick="f_modal()">11<img src="" alt=""></div>
             </div>
         </div>
 
@@ -545,6 +643,16 @@
         const v_dfmenu = document.getElementsByClassName("df_menu")[0];
         const v_gkmenu = document.getElementsByClassName("gk_menu")[0];
         const v_modal = document.getElementsByClassName("modal")[0];
+
+
+
+
+        let fw_array = [];
+        let mf_array = [];
+        let df_array = [];
+        let gk_array = [];
+
+        let filed_array = [];
 
         let onoff = true;
         function f_btn() {
@@ -594,7 +702,7 @@
 
         }
 
-        function f_close(){
+        function f_close() {
             v_modal.classList.add("d-none");
         }
 
@@ -624,16 +732,22 @@
         }
 
 
-        function f_modal(){
+
+
+
+        let p1 = "";
+        function f_modal() {
             v_modal.classList.remove("d-none");
+            p1 = event.target;
+
         }
+        let num = 0;
 
+        function f_input() {
+            p1.src = event.target.src;
+            v_modal.classList.add("d-none");
 
-
-
-
-
-
+        }
 
 
 

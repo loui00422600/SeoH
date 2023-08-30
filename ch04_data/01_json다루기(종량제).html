@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>json다루기(종량제)</title>
+
+    <!-- 공공데이터포털 -->
+
+    <style>
+        .container {
+            width: 800px;
+            height: 600px;
+            margin: auto;
+            border: 1px solid black;
+
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div>
+            <input id="inputRegion" type="text" placeholder="시도명">
+            <button onclick="f_search()">검색</button>
+        </div>
+        <div id="content"></div>
+    </div>
+
+    <div class="con"></div>
+    <script src="./01_priceJS.js"></script>
+    <script>
+        console.log(priceData);
+
+        let v_records = priceData["records"];
+
+        console.log(v_records);
+
+        console.log(v_records[0]["시도명"]);
+
+        //JSON 객체의 키값들을 배열로 가져오기
+        let v_keys = Object.keys(v_records[0]);
+        console.log(v_keys);
+
+        //v_records 에서 서울지역에 해당하는 데이터만 꺼내기
+        // 종량제봉투사용대상: 가정용
+        //종량제봉투용도: 생활쓰레기
+        //종량제봉투: 규격봉투
+        //종량제봉투처리방식: 소각용
+        let v_seoul = [];
+        for (let i = 0; i < v_records.length; i++) {
+            if (v_records[i]["시도명"].indexOf("서울") != -1
+                && v_records[i]["종량제봉투사용대상"].indexOf("가정용") != -1
+                && v_records[i]["종량제봉투용도"].indexOf("생활쓰레기") != -1
+                && v_records[i]["종량제봉투종류"].indexOf("규격봉투") == 0
+                && v_records[i]["종량제봉투처리방식"].indexOf("소각용") != -1
+            ) {
+                v_seoul.push(v_records[i]);
+            }
+        }
+        console.log(v_seoul);
+
+        //서울 종량제 봉투 데이터 확보
+        //10리터 봉투 가격이 가장 비싼 구를 찾기
+        let expen = v_seoul[0];
+        for (let i = 0; i < v_seoul.length; i++) {
+            if (expen["10ℓ가격"] < v_seoul[i]["10ℓ가격"]) {
+                expen = v_seoul[i];
+            }
+        }
+        console.log(expen["시군구명"] + "," + expen["10ℓ가격"]);
+
+        //380원인 구역이 은평구 뿐인가?
+        //서울에서 10리터 가격이 380원인 구역들을 수집
+        let v_maxRegions = [];
+        for (let i = 0; i < v_seoul.length; i++) {
+            // ===는 타입과 값 모두 일치해야 true 리턴
+            if (v_seoul[i]["10ℓ가격"] == 380) {
+                v_maxRegions.push(v_seoul[i]);
+            }
+        }
+        console.log(v_maxRegions);
+
+        //서울지역 데이터 중 v_seoul
+        //10리터 종량제 봉투 가격의 평균?
+        let avg = 0;
+        for (let i = 0; i < v_seoul.length; i++) {
+            avg += parseInt(v_seoul[i]["10ℓ가격"]);
+        }
+        avg = avg / v_seoul.length;
+        console.log(avg);
+
+
+        //데이터를 화면에 뿌리기
+        const v_content = document.querySelector("#content");
+        let ex = [];
+
+        for (let i = 0; i < v_records.length; i++) {
+            if (v_records[i]["종량제봉투사용대상"].indexOf("가정용") != -1
+                && v_records[i]["종량제봉투용도"].indexOf("생활쓰레기") != -1
+                && v_records[i]["종량제봉투종류"].indexOf("규격봉투") == 0
+                && v_records[i]["종량제봉투처리방식"].indexOf("소각용") != -1
+            ) {
+                ex.push(v_records[i]);
+                let v_str = "<h3>" + v_records[i]["시도명"];
+                v_str += " | " + v_records[i]["시군구명"];
+                v_str += " | " + v_records[i]["10ℓ가격"];
+
+                v_content.innerHTML += v_str
+            }
+        }
+
+
+        const v_search = document.querySelector("#inputRegion");
+
+        function f_search() {
+            v_content.innerHTML = "";
+            for (let i = 0; i < ex.length; i++) {
+                if (ex[i]["시도명"].indexOf(v_search.value) != -1) {
+                    let v_str2 = "<h3>" + ex[i]["시도명"];
+                    v_str2 += " | " + ex[i]["시군구명"];
+                    v_str2 += " | " + ex[i]["10ℓ가격"];
+                    if(v_content.innerHTML.indexOf(ex[i]["시도명"] + " | "  + ex[i]["시군구명"] + " | " + ex[i]["10ℓ가격"]) == -1 ){
+                        v_content.innerHTML += v_str2;
+                    }
+            }
+        }
+    }
+    </script>
+</body>
+
+</html>

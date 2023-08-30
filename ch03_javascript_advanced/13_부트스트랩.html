@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부트스트랩</title>
+
+    <!-- 반응형 웹사이트를 만들기 좋은 -->
+    <!-- 미리 스타일들을 클래스로 만들어 놓아서 -->
+    <!-- 이를 가져다 쓰기만 하면 되도록 만들어 놓은 라이브러리 -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <style>
+        .container {
+            width: 900px;
+            margin: auto;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- 부트스트랩 네비게이션 -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../resources/images/_6qeSAADK9gdzLZvpLGSuEkts8ilIkIJmQvYX888MoTI5FEgLcX59LmZAzx1ggys4x9_tWeov8jCCyywBU54YA.webp"
+                        class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>정적</h5>
+                        <p>...</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="../resources/images/-MByE_XYB-B3heui3DkXi3w4DVJ5jnzD8HEFjaTLn0fkz-mRxrR7NJkJhXDHBZ_BDTPl3ya-eGejeQ8CxWvZ_g.webp"
+                        class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>어...어?</h5>
+                        <p>오...오??</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="../resources/images/166bd9a9d0e31934.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>열광</h5>
+                        <p>와아아아!!!!!!!!!!!!!!!!!!!!!!!</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+    <!-- 부트스트랩 레이아웃 그리드 -->
+    <div class="row">
+        <div class="card col-6">
+            <img src="https://thx2.sfo2.cdn.digitaloceanspaces.com/detail_meaning/%EC%A0%95%EC%A0%81_11.webp"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+
+        <div class="card col-6">
+            <img src="https://cdn.inflearn.com/public/files/blogs/4299d3ec-e6ee-4c2f-b058-33a52db8cf0b/IMG_2019.jpg"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+
+        <div class="card col-6">
+            <img src="https://thx.sfo2.cdn.digitaloceanspaces.com/wr/coverimages/m_11/%EC%97%B4%EA%B4%91%ED%95%98%EB%8B%A4_11.jpg"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+
+
+        <div class="card col-3">
+            <img src="https://thx.sfo2.cdn.digitaloceanspaces.com/wr/coverimages/m_11/%EC%97%B4%EA%B4%91%ED%95%98%EB%8B%A4_11.jpg"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+
+
+
+        <div class="card col-3">
+            <img src="https://thx.sfo2.cdn.digitaloceanspaces.com/wr/coverimages/m_11/%EC%97%B4%EA%B4%91%ED%95%98%EB%8B%A4_11.jpg"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+
+
+
+        <div class="card col-3">
+            <img src="https://thx.sfo2.cdn.digitaloceanspaces.com/wr/coverimages/m_11/%EC%97%B4%EA%B4%91%ED%95%98%EB%8B%A4_11.jpg"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+
+        <div class="card col-9">
+            <img src="https://thx.sfo2.cdn.digitaloceanspaces.com/wr/coverimages/m_11/%EC%97%B4%EA%B4%91%ED%95%98%EB%8B%A4_11.jpg"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+
+        <div class="card col-10">
+            <img src="https://thx.sfo2.cdn.digitaloceanspaces.com/wr/coverimages/m_11/%EC%97%B4%EA%B4%91%ED%95%98%EB%8B%A4_11.jpg"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+
+        <!-- 부트스트랩 폼 -->
+        <div class="mb-xl-5 mb-sm-2">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+        <div class="mb-2">
+            <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+
+        <!-- display: flex 와 정렬 -->
+        <div class="d-flex justify-content-end">
+            <!-- 부트스트랩 버튼 -->
+            <button type="button" class="btn btn-success">Success</button>
+
+        </div>
+
+
+    </div>
+</body>
+
+</html>
