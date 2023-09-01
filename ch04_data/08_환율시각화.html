@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>환율시각화</title>
+</head>
+
+<body>
+    <div style="width: 600px; height: 400px;">
+        <canvas id="myChart"></canvas>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        let v_rateDB = JSON.parse(localStorage.getItem("rateDB"));
+        console.log(v_rateDB);
+
+        let v_rates = v_rateDB["rates"];
+        console.log(v_rates);
+        let v_dateArray = Object.keys(v_rates);
+
+        let koreaArray = [];
+        for (let i = 0; i < v_dateArray.length; i++) {
+
+            let korea = {};
+            korea["date"] = v_dateArray[i];
+            korea["rate"] = v_rates[v_dateArray[i]]["KRW"];
+            
+            koreaArray.push(korea);
+            
+        }
+
+        let koreadate = [];
+        let korearate = [];
+        
+        for (let i = 0; i < koreaArray.length; i++) {
+            koreadate.push(koreaArray[i]["date"]);
+            korearate.push(koreaArray[i]["rate"]);
+        }
+
+        
+        
+
+
+        const ctx = document.getElementById("myChart");
+
+        let v_chart = new Chart(ctx, {
+            type: 'line', //bar, line, pie ,doughnut,rader
+            data: {
+                labels: koreadate,
+                datasets: [{
+                    label: 'KRW',
+                    data: korearate,
+                    borderWidth: 1,
+                    pointRadius: 0, // 점 표기 삭제
+                    borderColor: 'gray'
+                }]
+            },
+            options: {
+                elements: {
+                    line: {
+                        tension: 0.4 //수치가 커지면 꺾이는 부분이 부드러워짐
+                    }
+                }
+
+            }
+        });
+
+        //v_state가 0이면 일년치, v_state가 1이면 한달치, v_state가 2면 일주일치
+        let v_state = 0;
+        ctx.addEventListener("wheel",()=>{
+            console.log(event.wheelDelta);
+            if(event.wheelDelta > 0){
+                v_state ++;
+
+                if(v_state >= 3){
+                    v_state =2;
+                }
+            } else {
+                v_state --;
+                if(v_state <= 0){
+                    v_state =0;
+                }
+            }
+            console.log(v_state);
+
+            f_update();
+            
+        });
+
+        
+        function f_update(){
+            let v_tempLabels=[];
+            let v_tempData=[];
+            
+
+            //v_state가 0이면 일년치
+            if(v_state == 0){
+                v_tempLabels=koreadate;
+                v_tempData=korearate;
+               
+            } else if(v_state == 1) { //한달치 (30개 ~ 2021-08-01)
+                for(let i= koreadate.length-30; i< koreadate.length;i++){
+                    v_tempLabels.push(koreadate[i]);
+                    v_tempData.push(korearate[i]);
+                }
+                
+            } else if(v_state ==2) { //일주일치 (7개 ~ 2021-08-01)
+                for(let i= koreadate.length-7; i< koreadate.length-1;i++){
+                    v_tempLabels.push(koreadate[i]);
+                    v_tempData.push(korearate[i]);
+                }
+            }
+        
+            v_chart["data"]["labels"] = v_tempLabels;
+            v_chart["data"]["datasets"][0]["data"]= v_tempData;
+            v_chart.update();
+            
+        }
+
+
+    </script>
+
+</body>
+
+</html>

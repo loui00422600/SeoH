@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미세먼지시각화</title>
+</head>
+
+<body>
+    <h2>22년 미세먼지 경보이력</h2>
+    <div style="width: 600px; height: 400px;">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../resources/js/myJs.js"></script>
+
+    <script>
+        let v_airData = JSON.parse(localStorage.getItem("airData"));
+
+        console.log(v_airData);
+        console.log(v_airData[0]);
+
+        let v_labels = [];
+        let v_datasets = [];
+        let v_message = [];
+        //인천,경남,충북,경기,서울,충남,세종,대전,전남,전북,강원,광주,제주,부산,울산,경북 
+
+        for (let i = 0; i < v_airData.length; i++) {
+            if (v_labels.indexOf(v_airData[i]["districtName"]) == -1) {
+                v_labels.push(v_airData[i]["districtName"]);
+            }
+        }
+
+        console.log(v_labels);
+
+
+        for (let i = 0; i < v_airData.length; i++) {
+            v_message.push(v_airData[i]["districtName"]);
+        }
+        console.log(v_message);
+        let num = 0;
+
+        for (let k = 0; k < v_labels.length; k++) {
+            num = 0;
+            for (let i = 0; i < v_message.length; i++) {
+                if (v_labels[k] == v_message[i]) {
+                    num++;
+                }
+            }
+            v_datasets.push(num);
+        }
+
+        console.log(v_datasets);
+
+
+        for (let i = 0; i < v_labels.length; i++) {
+            for (let j = 0; j < v_labels.length; j++) {
+                if (v_datasets[i] > v_datasets[j]) {
+                    let a = v_labels[j];
+                    v_labels[j] = v_labels[i];
+                    v_labels[i] = a;
+
+                    let b = v_datasets[j];
+                    v_datasets[j] = v_datasets[i];
+                    v_datasets[i] = b;
+                }
+            }
+        }
+        let v_color=[];
+
+        for(let i = 0; i < v_labels.length;i++){
+            v_color.push(f_rgbColor());
+        }
+
+
+
+
+
+
+
+        const ctx = document.getElementById("myChart");
+
+        new Chart(ctx, {
+            type: 'bar', //bar, line, pie ,doughnut,rader
+            data: {
+                labels: v_labels,
+                datasets: [{
+                    label: "22년 미세먼지 경보이력",
+                    data: v_datasets,
+                    borderWidth: 3,
+                    backgroundColor: v_color
+
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+
+            }
+        });
+    </script>
+
+</body>
+
+</html>
