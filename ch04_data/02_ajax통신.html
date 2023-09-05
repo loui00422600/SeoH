@@ -12,11 +12,11 @@
     <script>
         // AJAX, Asynchronous JavaScript And XML(비동기 자바스크립트와 XML문서)
         // 요즘은 JSON 형태가 지배적이다.
-
+        
         function f_send(){
             //비동기 통신 객체 생성
             let v_ajax = new XMLHttpRequest();
-
+            
             //https://exchangerate.host
             // open(요청방식, 요청주소, 비동기 실행 여부)
             v_ajax.open("GET","https://api.exchangerate.host/timeseries?start_date=2020-08-01&end_date=2021-08-01");

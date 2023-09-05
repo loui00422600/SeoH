@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+
+<body>
+
+    <input type="text" name="" id="naming">
+    <button onclick="f_send()">요청 보내기</button>
+    <div id="result"></div>
+
+    <script>
+
+        const v_name = document.querySelector('#naming');
+
+        function f_send() {
+            let name = v_name.value;
+            f_lolsummoner(name);
+        }
+
+        //소환사 닉네임
+        let prikey = "RGAPI-b068aa5b-a67d-4e50-8d39-e54784df5a32";
+        var xhr = new XMLHttpRequest();
+
+
+
+        function f_lolsummoner(p_name) {
+            var url = 'https://cors-anywhere.herokuapp.com/https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/'; /*URL*/
+            var queryParams = encodeURIComponent(p_name);
+            queryParams += '?' + encodeURIComponent('api_key') + '=' + prikey; /**/
+            xhr.open('GET', url + queryParams);
+            xhr.onreadystatechange = function () {   //성공했을때 실행되는곳 
+                if (this.readyState == 4) {
+                    console.log(this.responseText);
+                    let v_json = JSON.parse(this.responseText);
+                    console.log(v_json);
+                    account = v_json['id'];
+                    localStorage.setItem("id", v_json['id']);
+                    localStorage.setItem("puuid", v_json['puuid']);
+                    f_loltier();
+                }
+            }
+            xhr.send('');
+        }
+
+
+
+        function f_loltier() { //롤 티어
+            var url = 'https://cors-anywhere.herokuapp.com/https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/'; /*URL*/
+            var queryParams = localStorage.getItem("id");
+
+            queryParams += '?' + 'api_key' + '=' + prikey; /**/
+            xhr.open('GET', url + queryParams);
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4) {
+                    let v_json = JSON.parse(this.responseText);
+                    console.log(v_json);
+                    f_champion();
+                }
+            }
+            xhr.send('');
+        }
+
+        function f_champion() { // 챔피언 숙련도
+            var url = 'https://cors-anywhere.herokuapp.com/https://kr.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-puuid/'; /*URL*/
+            var queryParams = localStorage.getItem("puuid");
+
+            queryParams += '?' + 'api_key' + '=' + prikey; /**/
+            xhr.open('GET', url + queryParams);
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4) {
+                    let v_json = JSON.parse(this.responseText);
+                    console.log(v_json);
+                     f_match();
+                }
+            }
+            xhr.send('');
+        }
+
+        function f_match() { // 롤 매칭 판수
+            var url = 'https://cors-anywhere.herokuapp.com/https://asia.api.riotgames.com/lol/match/v5/matches/by-puuid/'; /*URL*/
+            var queryParams = localStorage.getItem("puuid");
+
+            queryParams += '/ids?' + 'strat=0&' + 'count=10&' + 'api_key' + '=' + prikey; /**/
+            xhr.open('GET', url + queryParams);
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4) {
+                    let v_json = JSON.parse(this.responseText);
+                    console.log(v_json);
+                    localStorage.setItem("matchid",v_json)
+                    console.log(localStorage.getItem("matchid"));
+                }
+            }
+            xhr.send('');
+        }
+
+        // function f_matching(){
+        //     var url = 'https://cors-anywhere.herokuapp.com/https://asia.api.riotgames.com/lol/match/v5/matches/'; /*URL*/
+        //     var queryParams = localStorage.getItem("matchid");
+
+        //     queryParams += 'api_key' + '=' + prikey; /**/
+        //     xhr.open('GET', url + queryParams);
+        //     xhr.onreadystatechange = function () {
+        //         if (this.readyState == 4) {
+        //             let v_json = JSON.parse(this.responseText);
+        //             console.log(v_json);
+                    
+        //         }
+        //     }
+        //     xhr.send('');
+        // }
+
+
+
+    </script>
+</body>
+
+</html>
