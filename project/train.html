@@ -35,7 +35,7 @@
     }
 
     .head>div:nth-child(1)>img {
-        width: 90%;
+        width: 70%;
         height: 90%;
         margin: auto;
     }
@@ -111,11 +111,31 @@
         position: absolute;
     }
 
+    .t_modal1{
+        width: 1500px;
+        height: 950px;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 100;
+        position: absolute;
+
+    }
+
     .createmodal {
         width: 30%;
         height: 70%;
         position: absolute;
         background-color: wheat;
+        border-radius: 8px;
+    }
+
+    .createmodal1{
+        width: 30%;
+        height: 70%;
+        position: absolute;
+        background-color: aquamarine;
         border-radius: 8px;
 
     }
@@ -173,6 +193,33 @@
         display: none;
     }
 
+    #logout:hover{
+        filter: brightness(80%);
+    }
+
+    #ticketing{
+        margin-left: 30px;
+    }
+
+    #ticketing:hover{
+        filter: brightness(80%);
+    }
+
+    @keyframes pagein{
+        0% {
+            opacity: 0;
+        }
+
+        100%{
+            opacity: 1;
+
+        }
+    }
+
+    .inner{
+        animation:pagein 1s forwards;
+    }
+
     /* .backcolor{
         filter: brightness(70%);
     } */
@@ -181,12 +228,14 @@
 <body>
     <!-- <div class="black_wall"></div> -->
     <div class="main">
-        <div class="t_modal d_none">
-            <div class="createmodal">
+
+
+        <div class="t_modal d_none" >
+            <div  class="createmodal">
                 <div class="close">
-                    <img src="../resources/images/closebtn.webp" onclick="f_onoff()" alt="">
+                    <img src="../resources/images/closebtn.webp" style="cursor: pointer;" onclick="f_onoff()" alt="">
                 </div>
-                <div style="text-align: center;">
+                <div style="text-align:center;">
                     <h1>회원가입</h1>
                 </div>
                 <div class="user">
@@ -221,24 +270,57 @@
                 </div>
             </div>
         </div>
+
+        <div class="t_modal" >
+            <div style="background-color: aquamarine;" class="createmodal1">
+                <div class="close">
+                    <img src="../resources/images/closebtn.webp" style="cursor: pointer;" onclick="f_onoff1()" alt="">
+                </div>
+                <div style="text-align:center;">
+                    <h2>예 매</h2>
+                </div>
+                <div class="ticketing">
+                    <div class="citychoice">
+                        <div class="dropdown">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              출발점
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                            </div>
+                    </div>
+                    <div class="ticketingtime"></div>
+                    <div></div>
+                </div>
+                <div class="userbtn">
+                </div>
+            </div>
+        </div>
+
+
+
         <div class="head">
             <div class="logo">
-                <img src="" alt="">
+                <img src="../resources/images/trainlogo-removebg-preview.png" alt="">
             </div>
-            <div class="t_title" style="border: 1px solid blue;"></div>
+            <div class="t_title" style="width: 70%;  border: 1px solid blue;"></div>
             <div class="login">
                 <div class="login2">
                     <div>
-                        ID&nbsp<input type="text"><br>
-                        PW<input type="password">
+                        ID&nbsp;&nbsp;<input id="loginid" type="text"><br>
+                        PW<input id="loginpw" type="password">
                     </div>
                     <div>
-                        <button>로그인</button>
+                        <button style="font-size: 15px; font-weight: bolder;" onclick="f_login()">로그인</button>
                     </div>
                 </div>
                 <div class="creat">
-                    <button onclick="f_onoff()">회원가입</button>
+                    <button style="font-weight: bolder; background-color: cornflowerblue; border-radius:10px ; width: 200px;height: 40px;" onclick="f_onoff()">회 원 가 입</button>
                 </div>
+                <div class="userlog d_none"></div>
             </div>
         </div>
         <div class="center backcolor">
@@ -250,8 +332,7 @@
                     </div>
                     <div class="carousel-item" data-bs-interval="2000">
                         <img src="../resources/images/trainback2.jpg" style="width:100%;  height: 900px; z-index: 50;"
-                            class="" alt="..." onclick="f_modal()">
-                        <button style="position: absolute; z-index: 100;">클릭</button>
+                            class="" onclick="f_onoff()" alt="...">
                     </div>
                     <div class="carousel-item">
                         <img src="../resources/images/trainback3.jpg" style="width:100%;  height: 900px;" class=""
@@ -283,24 +364,26 @@
         const v_namecheck = document.getElementById("namecheck");
         const v_pwchecking = document.getElementById("pwchecking");
         const v_emailcheck = document.getElementById("emailcheck");
-        const v_modal = document.querySelector(".t_modal");
+        const v_modal1 = document.querySelector(".creatmodal");
+        const v_loginid=document.querySelector("#loginid");
+        const v_loginpw= document.querySelector("#loginpw");
+        const v_creatbtn=document.querySelector(".creat");
+        const v_login2=document.querySelector(".login2");
 
 
         let onoff=false;
         function f_onoff(){
             if(!onoff){
                 v_modal.classList.remove("d_none");
+                v_modal.classList.add("inner");
                 onoff=true;
-                v_creatid.value="";
-                v_creatpw.value="";
-                v_creatpwcheck.value="";
-                v_createmail.value="";
-                v_creatname.value="";
+                f_reset();
             } else{
+                v_modal.classList.remove("inner");
                 v_modal.classList.add("d_none");
                 onoff=false;
+                }
             }
-        }
 
 
         function f_createname() {
@@ -348,7 +431,7 @@
         }
 
         function f_createcheck() {
-            if (v_creatpwcheck.value != v_creatpw.value) {
+            if (v_creatpwcheck.value != v_creatpw.value || v_pwcheck.style.color=="red") {
                 v_creatpwcheck.style.boxShadow = "0px 0px 2px 2px red"
                 v_pwchecking.style.color = "red"
                 v_pwchecking.innerHTML = "패스워드를 다시 입력해주세요."
@@ -426,6 +509,66 @@
                 v_emailcheck.innerHTML = "중복되는 email입니다.";
                 break;
                 }
+            }
+        }
+
+        function f_reset(){
+            v_creatid.value="";
+                v_creatpw.value="";
+                v_creatpwcheck.value="";
+                v_createmail.value="";
+                v_creatname.value="";
+                v_creatname.style.boxShadow = ""
+                v_namecheck.style.color = ""
+                v_namecheck.innerHTML = ""
+                v_creatid.style.boxShadow = ""
+                v_idcheck.style.color = ""
+                v_idcheck.innerHTML = ""
+                v_creatpw.style.boxShadow = ""
+                v_pwcheck.style.color = ""
+                v_pwcheck.innerHTML = ""
+                v_creatpwcheck.style.boxShadow = ""
+                v_pwchecking.style.color = ""
+                v_pwchecking.innerHTML = ""
+                v_createmail.style.boxShadow = ""
+                v_emailcheck.style.color = ""
+                v_emailcheck.innerHTML = ""
+        }
+
+
+        const v_login=document.querySelector(".login");
+        const v_userlog=document.querySelector(".userlog");
+        let loginch = false;
+        function f_login(){
+            for(let i=0;i< v_userDB.length;i++){
+                if(v_userDB[i]["id"]== v_loginid.value
+                && v_userDB[i]["password"]==v_loginpw.value){
+                    sessionStorage.setItem("LoginUser",JSON.stringify(v_userDB[i]));
+                    v_creatbtn.classList.add("d_none");
+                    v_login2.classList.add("d_none");
+                    v_userlog.classList.remove("d_none");
+                    v_userlog.innerHTML=  "<div>"+ v_userDB[i]["name"] + "님께서 로그인 하셨습니다.</div>";
+                    v_userlog.innerHTML += "<button id='logout' onclick='f_logout()'>로그아웃</button>";
+                    v_userlog.innerHTML += "<button id='ticketing' style='margin-right:30px;' onclick='f_ticketingch()'>예매현황</button>"
+                    loginch =true;
+                }
+            } 
+            if(!loginch){
+                alert("다시입력해주세요.");
+            }
+        }
+
+        function f_logout(){
+            if(loginch){
+                loginch=false;
+                // v_loginid.value="";
+                // v_loginpw.value="";
+                // v_userlog.innerHTML="";
+                sessionStorage.removeItem("LoginUser");
+                // v_userlog.classList.add("d_none");
+                // v_creatbtn.classList.remove("d_none");
+                // v_login2.classList.remove("d_none");
+                location.reload();            
             }
         }
     </script>
