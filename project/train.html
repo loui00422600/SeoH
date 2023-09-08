@@ -111,7 +111,7 @@
         position: absolute;
     }
 
-    .t_modal1{
+    .t_modal1 {
         width: 1500px;
         height: 950px;
         margin: auto;
@@ -131,7 +131,7 @@
         border-radius: 8px;
     }
 
-    .createmodal1{
+    .createmodal1 {
         width: 30%;
         height: 70%;
         position: absolute;
@@ -189,35 +189,119 @@
         background-color: #00000055;
     }
 
-    .d_none{
+    .d_none {
         display: none;
     }
 
-    #logout:hover{
+    #logout:hover {
         filter: brightness(80%);
     }
 
-    #ticketing{
+    #ticketing {
         margin-left: 30px;
     }
 
-    #ticketing:hover{
+    #ticketing:hover {
         filter: brightness(80%);
     }
 
-    @keyframes pagein{
+    @keyframes pagein {
         0% {
             opacity: 0;
         }
 
-        100%{
+        100% {
             opacity: 1;
 
         }
     }
 
-    .inner{
-        animation:pagein 1s forwards;
+    .inner {
+        animation: pagein 1s forwards;
+    }
+
+    .start {
+        position: relative;
+        display: inline-block;
+    }
+
+    .start>button {
+        width: 100px;
+        height: 40px;
+        font-size: 15px;
+        background-color: azure;
+        color: black;
+    }
+
+    #drop-content {
+        width: 200px;
+        position: absolute;
+        z-index: 1;
+        height: 200px;
+        display: flex;
+
+        overflow-y: scroll;
+    }
+
+    #drop-content a {
+        display: block;
+        font-size: 20px;
+        background-color: #dfdfdf;
+        color: black;
+        text-decoration: none;
+        padding: 10px 36px;
+        margin: 2px 0px 0px 0px;
+    }
+
+    #drop-content a:hover {
+        filter: brightness(80%);
+        cursor: pointer;
+    }
+
+
+    .end {
+        position: relative;
+        display: inline-block;
+    }
+
+    .end>button {
+        width: 100px;
+        height: 40px;
+        font-size: 15px;
+        background-color: azure;
+        color: black;
+    }
+
+    #drop-content1 {
+        width: 200px;
+        position: absolute;
+        z-index: 1;
+        height: 200px;
+        display: flex;
+
+        overflow-y: scroll;
+    }
+
+    #drop-content1 a {
+        display: block;
+        font-size: 20px;
+        background-color: #dfdfdf;
+        color: black;
+        text-decoration: none;
+        padding: 10px 36px;
+        margin: 2px 0px 0px 0px;
+    }
+
+    #drop-content1 a:hover {
+        filter: brightness(80%);
+        cursor: pointer;
+    }
+
+
+    .citychoice{
+        display: flex;
+        align-items: center;
+        justify-content:space-around;
     }
 
     /* .backcolor{
@@ -230,8 +314,8 @@
     <div class="main">
 
 
-        <div class="t_modal d_none" >
-            <div  class="createmodal">
+        <div class="t_modal d_none">
+            <div class="createmodal">
                 <div class="close">
                     <img src="../resources/images/closebtn.webp" style="cursor: pointer;" onclick="f_onoff()" alt="">
                 </div>
@@ -271,7 +355,7 @@
             </div>
         </div>
 
-        <div class="t_modal" >
+        <div class="t_modal">
             <div style="background-color: aquamarine;" class="createmodal1">
                 <div class="close">
                     <img src="../resources/images/closebtn.webp" style="cursor: pointer;" onclick="f_onoff1()" alt="">
@@ -280,19 +364,31 @@
                     <h2>예 매</h2>
                 </div>
                 <div class="ticketing">
-                    <div class="citychoice">
-                        <div class="dropdown">
-                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              출발점
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
+                    <div class="citychoice" style="border: 1px solid red;">
+                        <div class="start">
+                            <button id="startname" onclick="f_drop()">출 발</button>
+                            <div style="display: none;" id="drop-content">
+                                <div>
+                                    <input id='startsearch' style='width:65%' type='text'>
+                                    <button onclick='f_areasearch()' style='width:30%'>검색</button>
+                                </div>
+                                <div id="drop-area"></div>
                             </div>
+                        </div>
+                        <div class="end">
+                            <button id="endname" onclick="f_drop1()">도 착</button>
+                            <div style="display: none;" id="drop-content1">
+                                <div>
+                                    <input id='endsearch' style='width:65%' type='text'>
+                                    <button onclick='f_areasearch1()' style='width:30%'>검색</button>
+                                </div>
+                                <div id="drop-area1"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="ticketingtime"></div>
+                    <div style="width: 100%;height: 50px; border: 1px solid black;" class="traintype"></div>
+                    <div style="width: 100%;height: 50px; border: 1px solid black;" class="searchbtn"></div>
+                    <div style="width:100%; border: 1px solid black; height: 400px;" class="ticketingtime"></div>
                     <div></div>
                 </div>
                 <div class="userbtn">
@@ -318,7 +414,9 @@
                     </div>
                 </div>
                 <div class="creat">
-                    <button style="font-weight: bolder; background-color: cornflowerblue; border-radius:10px ; width: 200px;height: 40px;" onclick="f_onoff()">회 원 가 입</button>
+                    <button
+                        style="font-weight: bolder; background-color: cornflowerblue; border-radius:10px ; width: 200px;height: 40px;"
+                        onclick="f_onoff()">회 원 가 입</button>
                 </div>
                 <div class="userlog d_none"></div>
             </div>
@@ -365,25 +463,25 @@
         const v_pwchecking = document.getElementById("pwchecking");
         const v_emailcheck = document.getElementById("emailcheck");
         const v_modal1 = document.querySelector(".creatmodal");
-        const v_loginid=document.querySelector("#loginid");
-        const v_loginpw= document.querySelector("#loginpw");
-        const v_creatbtn=document.querySelector(".creat");
-        const v_login2=document.querySelector(".login2");
+        const v_loginid = document.querySelector("#loginid");
+        const v_loginpw = document.querySelector("#loginpw");
+        const v_creatbtn = document.querySelector(".creat");
+        const v_login2 = document.querySelector(".login2");
 
 
-        let onoff=false;
-        function f_onoff(){
-            if(!onoff){
+        let onoff = false;
+        function f_onoff() {
+            if (!onoff) {
                 v_modal.classList.remove("d_none");
                 v_modal.classList.add("inner");
-                onoff=true;
+                onoff = true;
                 f_reset();
-            } else{
+            } else {
                 v_modal.classList.remove("inner");
                 v_modal.classList.add("d_none");
-                onoff=false;
-                }
+                onoff = false;
             }
+        }
 
 
         function f_createname() {
@@ -406,7 +504,7 @@
                 v_creatid.style.boxShadow = "0px 0px 2px 2px red"
                 v_idcheck.style.color = "red"
                 v_idcheck.innerHTML = "형식에 맞지 않는 id입니다."
-            } 
+            }
             else {
                 v_creatid.style.boxShadow = "0px 0px 2px 2px skyblue"
                 v_idcheck.style.color = "skyblue"
@@ -431,7 +529,7 @@
         }
 
         function f_createcheck() {
-            if (v_creatpwcheck.value != v_creatpw.value || v_pwcheck.style.color=="red") {
+            if (v_creatpwcheck.value != v_creatpw.value || v_pwcheck.style.color == "red") {
                 v_creatpwcheck.style.boxShadow = "0px 0px 2px 2px red"
                 v_pwchecking.style.color = "red"
                 v_pwchecking.innerHTML = "패스워드를 다시 입력해주세요."
@@ -480,7 +578,7 @@
                 console.log(v_userArray);
                 localStorage.setItem("userDB", JSON.stringify(v_userArray));
                 v_modal.classList.add("d_none");
-                onoff=false;
+                onoff = false;
                 alert("회원가입이 완료되었습니다.")
             } else {
                 alert("정보가 잘못되었습니다. 다시 확인해주세요.")
@@ -491,76 +589,76 @@
         function f_sameid() {
             let v_userDB = JSON.parse(localStorage.getItem("userDB"));
             for (let i = 0; i < v_userDB.length; i++) {
-                if (v_userDB[i]["id"]== v_creatid.value) {
-                v_creatid.style.boxShadow = "0px 0px 2px 2px red"
-                v_idcheck.style.color = "red"
-                v_idcheck.innerHTML = "중복되는 id입니다.";
-                break;
+                if (v_userDB[i]["id"] == v_creatid.value) {
+                    v_creatid.style.boxShadow = "0px 0px 2px 2px red"
+                    v_idcheck.style.color = "red"
+                    v_idcheck.innerHTML = "중복되는 id입니다.";
+                    break;
                 }
             }
         }
 
-        function f_sameemail(){
+        function f_sameemail() {
             let v_userDB = JSON.parse(localStorage.getItem("userDB"));
             for (let i = 0; i < v_userDB.length; i++) {
-                if (v_userDB[i]["email"]== v_createmail.value) {
-                v_createmail.style.boxShadow = "0px 0px 2px 2px red"
-                v_emailcheck.style.color = "red"
-                v_emailcheck.innerHTML = "중복되는 email입니다.";
-                break;
+                if (v_userDB[i]["email"] == v_createmail.value) {
+                    v_createmail.style.boxShadow = "0px 0px 2px 2px red"
+                    v_emailcheck.style.color = "red"
+                    v_emailcheck.innerHTML = "중복되는 email입니다.";
+                    break;
                 }
             }
         }
 
-        function f_reset(){
-            v_creatid.value="";
-                v_creatpw.value="";
-                v_creatpwcheck.value="";
-                v_createmail.value="";
-                v_creatname.value="";
-                v_creatname.style.boxShadow = ""
-                v_namecheck.style.color = ""
-                v_namecheck.innerHTML = ""
-                v_creatid.style.boxShadow = ""
-                v_idcheck.style.color = ""
-                v_idcheck.innerHTML = ""
-                v_creatpw.style.boxShadow = ""
-                v_pwcheck.style.color = ""
-                v_pwcheck.innerHTML = ""
-                v_creatpwcheck.style.boxShadow = ""
-                v_pwchecking.style.color = ""
-                v_pwchecking.innerHTML = ""
-                v_createmail.style.boxShadow = ""
-                v_emailcheck.style.color = ""
-                v_emailcheck.innerHTML = ""
+        function f_reset() {
+            v_creatid.value = "";
+            v_creatpw.value = "";
+            v_creatpwcheck.value = "";
+            v_createmail.value = "";
+            v_creatname.value = "";
+            v_creatname.style.boxShadow = ""
+            v_namecheck.style.color = ""
+            v_namecheck.innerHTML = ""
+            v_creatid.style.boxShadow = ""
+            v_idcheck.style.color = ""
+            v_idcheck.innerHTML = ""
+            v_creatpw.style.boxShadow = ""
+            v_pwcheck.style.color = ""
+            v_pwcheck.innerHTML = ""
+            v_creatpwcheck.style.boxShadow = ""
+            v_pwchecking.style.color = ""
+            v_pwchecking.innerHTML = ""
+            v_createmail.style.boxShadow = ""
+            v_emailcheck.style.color = ""
+            v_emailcheck.innerHTML = ""
         }
 
 
-        const v_login=document.querySelector(".login");
-        const v_userlog=document.querySelector(".userlog");
+        const v_login = document.querySelector(".login");
+        const v_userlog = document.querySelector(".userlog");
         let loginch = false;
-        function f_login(){
-            for(let i=0;i< v_userDB.length;i++){
-                if(v_userDB[i]["id"]== v_loginid.value
-                && v_userDB[i]["password"]==v_loginpw.value){
-                    sessionStorage.setItem("LoginUser",JSON.stringify(v_userDB[i]));
+        function f_login() {
+            for (let i = 0; i < v_userDB.length; i++) {
+                if (v_userDB[i]["id"] == v_loginid.value
+                    && v_userDB[i]["password"] == v_loginpw.value) {
+                    sessionStorage.setItem("LoginUser", JSON.stringify(v_userDB[i]));
                     v_creatbtn.classList.add("d_none");
                     v_login2.classList.add("d_none");
                     v_userlog.classList.remove("d_none");
-                    v_userlog.innerHTML=  "<div>"+ v_userDB[i]["name"] + "님께서 로그인 하셨습니다.</div>";
+                    v_userlog.innerHTML = "<div>" + v_userDB[i]["name"] + "님께서 로그인 하셨습니다.</div>";
                     v_userlog.innerHTML += "<button id='logout' onclick='f_logout()'>로그아웃</button>";
                     v_userlog.innerHTML += "<button id='ticketing' style='margin-right:30px;' onclick='f_ticketingch()'>예매현황</button>"
-                    loginch =true;
+                    loginch = true;
                 }
-            } 
-            if(!loginch){
+            }
+            if (!loginch) {
                 alert("다시입력해주세요.");
             }
         }
 
-        function f_logout(){
-            if(loginch){
-                loginch=false;
+        function f_logout() {
+            if (loginch) {
+                loginch = false;
                 // v_loginid.value="";
                 // v_loginpw.value="";
                 // v_userlog.innerHTML="";
@@ -568,9 +666,81 @@
                 // v_userlog.classList.add("d_none");
                 // v_creatbtn.classList.remove("d_none");
                 // v_login2.classList.remove("d_none");
-                location.reload();            
+                location.reload();
             }
         }
+
+        let v_startname = document.querySelector("#startname");
+        let v_endname = document.querySelector("#endname");
+        let v_drop1 = document.querySelector("#drop-content");
+        let v_drop2 = document.querySelector("#drop-content1");
+        let v_droparea = document.querySelector("#drop-area");
+        let v_droparea1 = document.querySelector("#drop-area1");
+        let v_allarea = JSON.parse(localStorage.getItem("allarea"));
+
+
+        function f_drop() {
+            for (let i = 0; i < v_allarea.length; i++) {
+                v_droparea.innerHTML += "<a onclick='f_areaclick()'>" + v_allarea[i]["nodename"] + "</a>";
+            }
+            if (v_drop1.style.display === "none") {
+                v_drop1.style.display = "block";
+            } else {
+                v_drop1.style.display = "none";
+            }
+        } 
+        function f_drop1() {
+            for (let i = 0; i < v_allarea.length; i++) {
+                // let v_a = document.createElement("a");
+                v_droparea1.innerHTML += "<a onclick='f_areaclick1()'>" + v_allarea[i]["nodename"] + "</a>";
+                // v_drop1.appendChild(v_a)
+            }
+            if (v_drop2.style.display === "none") {
+                v_drop2.style.display = "block";
+            } else {
+                v_drop2.style.display = "none";
+            }
+        }
+
+        function f_areaclick() {
+            v_startname.innerHTML = event.target.innerHTML;
+            if (v_drop1.style.display === "none") {
+                v_drop1.style.display = "block";
+            } else {
+                v_drop1.style.display = "none";
+            }
+        }
+        function f_areaclick1() {
+            v_endname.innerHTML = event.target.innerHTML;
+            if (v_drop2.style.display === "none") {
+                v_drop2.style.display = "block";
+            } else {
+                v_drop2.style.display = "none";
+            }
+        }
+
+        let v_startsearch = document.querySelector("#startsearch");
+        function f_areasearch() {
+            v_droparea.innerHTML = "";
+            console.log(v_startsearch.value);
+            for (let i = 0; i < v_allarea.length; i++) {
+                if (v_allarea[i]["nodename"].indexOf(v_startsearch.value) != -1) {
+                    v_droparea.innerHTML += "<a onclick='f_areaclick()'>" + v_allarea[i]["nodename"] + "</a>";
+                }
+            }
+        } 
+        
+        function f_areasearch1() {
+            v_droparea.innerHTML = "";
+            console.log(v_endsearch.value);
+            for (let i = 0; i < v_allarea.length; i++) {
+                if (v_allarea[i]["nodename"].indexOf(v_endsearch.value) != -1) {
+                    v_droparea.innerHTML += "<a onclick='f_areaclick()'>" + v_allarea[i]["nodename"] + "</a>";
+                }
+            }
+        }
+
+        console.log(JSON.parse(localStorage.getItem("allarea")).length);
     </script>
 </body>
 

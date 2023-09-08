@@ -15,30 +15,31 @@
         function f_click() {
             num =0;
 
-            // f_city();
+            // f_area();
             //f_train();
-            f_station(num);
+            // f_station(num);
+            f_allcity(num);
         }
 
 
         var xhr = new XMLHttpRequest();
 
-        // function f_city(){
-        //    /* Javascript 샘플 코드 */
-        // var url = 'http://apis.data.go.kr/1613000/TrainInfoService/getCtyCodeList'; /*URL*/
-        // var queryParams = '?' + encodeURIComponent('serviceKey') + '='+'EiBpG0IF%2F5iWabEn0sVxpe1pxanblUPYUv4n9u66FIyB7XS4VXT43NZ%2BwC2KXZt6BW%2FdxrjLlbNvWhYmlxlLyQ%3D%3D'; /*Service Key*/
-        // queryParams += '&' + encodeURIComponent('_type') + '=' + encodeURIComponent('json'); /**/
-        // xhr.open('GET', url + queryParams);
-        // xhr.onreadystatechange = function () {
-        //     if (this.readyState == 4) {
-        //         let v_json = JSON.parse(this.responseText);
-        //         console.log(v_json);
-        //         localStorage.setItem("city",JSON.stringify(v_json["response"]["body"]["items"]["item"]));
-        //     }
-        // };
+        function f_area(){
+           /* Javascript 샘플 코드 */
+        var url = 'http://apis.data.go.kr/1613000/TrainInfoService/getCtyCodeList'; /*URL*/
+        var queryParams = '?' + encodeURIComponent('serviceKey') + '='+'EiBpG0IF%2F5iWabEn0sVxpe1pxanblUPYUv4n9u66FIyB7XS4VXT43NZ%2BwC2KXZt6BW%2FdxrjLlbNvWhYmlxlLyQ%3D%3D'; /*Service Key*/
+        queryParams += '&' + encodeURIComponent('_type') + '=' + encodeURIComponent('json'); /**/
+        xhr.open('GET', url + queryParams);
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4) {
+                let v_json = JSON.parse(this.responseText);
+                console.log(v_json);
+                localStorage.setItem("area",JSON.stringify(v_json["response"]["body"]["items"]["item"]));
+            }
+        };
 
-        // xhr.send('');
-        // }
+        xhr.send('');
+        }
 
         function f_train() {
             /* Javascript 샘플 코드 */
@@ -57,16 +58,8 @@
             xhr.send('');
         }
 
-        function p_pageNo() {
 
-        }
-
-        function p_city() {
-            JSON.parse(localStorage.getItem("city"))[i]["citycode"]
-
-        }
-
-        function f_station(f_num) {
+        function f_city(f_num) {
             /* Javascript 샘플 코드 */
             let v_json2 = {};
             let cityarray = [];
@@ -112,9 +105,43 @@
                     // }
                 };
             }
-
             xhr.send('');
         }
+
+
+        let v_cityArray=[];
+        function f_allcity(f_num) {
+            /* Javascript 샘플 코드 */
+            var url = 'http://apis.data.go.kr/1613000/TrainInfoService/getCtyAcctoTrainSttnList'; /*URL*/
+            var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'EiBpG0IF%2F5iWabEn0sVxpe1pxanblUPYUv4n9u66FIyB7XS4VXT43NZ%2BwC2KXZt6BW%2FdxrjLlbNvWhYmlxlLyQ%3D%3D'; /*Service Key*/
+            queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
+            queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('100'); /**/
+            queryParams += '&' + encodeURIComponent('_type') + '=' + encodeURIComponent('json'); /**/
+            queryParams += '&' + encodeURIComponent('cityCode') + '=' + encodeURIComponent(JSON.parse(localStorage.getItem("city"))[f_num]["citycode"]); /**/
+            xhr.open('GET', url + queryParams);
+            xhr.onreadystatechange = function () {
+                
+                if (this.readyState == 4) {
+                    let v_json = JSON.parse(this.responseText);
+                    
+                    if (v_json["response"]["body"]["items"]["item"].length > 0 && f_num <= 14) {
+                        let v_items = v_json["response"]["body"]["items"];
+                        console.log(v_items);
+                        for (let i = 0; i < v_items["item"].length; i++) {
+                            v_cityArray.push(v_items["item"][i]);
+                        }
+                        v_items="";
+                        localStorage.setItem("allarea",JSON.stringify(v_cityArray));
+                        f_num++;
+                        f_allcity(f_num);
+                    } else {
+                        document.write("데이터를 전부 불러왔습니다.");
+                    }
+                };
+            }
+            xhr.send('');
+        }
+
     </script>
 </body>
 
