@@ -298,10 +298,15 @@
     }
 
 
-    .citychoice{
+    .citychoice {
         display: flex;
         align-items: center;
-        justify-content:space-around;
+        justify-content: space-around;
+    }
+
+    .traintype >input{
+        margin-right: 20px;
+        margin-left: 20px;
     }
 
     /* .backcolor{
@@ -386,9 +391,20 @@
                             </div>
                         </div>
                     </div>
-                    <div style="width: 100%;height: 50px; border: 1px solid black;" class="traintype"></div>
-                    <div style="width: 100%;height: 50px; border: 1px solid black;" class="searchbtn"></div>
-                    <div style="width:100%; border: 1px solid black; height: 400px;" class="ticketingtime"></div>
+                    <div style="width: 100%;height: 50px; border: 1px solid black; display: flex; align-items: center; justify-content: center;" class="traintype">
+                    전체 <input type="radio" name="t_type" id="" checked>
+                    무궁화 <input type="radio" name="t_type" id="">
+                    새마을<input type="radio" name="t_type" id="">
+                    KTX <input type="radio" name="t_type" id="">
+                    </div>
+                    <div style="width: 100%;height: 50px; border: 1px solid black; display: flex; align-items: center; justify-content: center;"
+                        class="searchbtn">
+                        <button style="width: 80px; height: 50px;" onclick="f_timecheck()">조 회</button>
+                    </div>
+                    <div style="width:100%; border: 1px solid black; height: 400px; display: flex; align-items: center; justify-content: center;"
+                        class="ticketingtime">
+                        <div style="width:90%; height: 90%; background-color: white;"></div>
+                    </div>
                     <div></div>
                 </div>
                 <div class="userbtn">
@@ -688,7 +704,7 @@
             } else {
                 v_drop1.style.display = "none";
             }
-        } 
+        }
         function f_drop1() {
             for (let i = 0; i < v_allarea.length; i++) {
                 // let v_a = document.createElement("a");
@@ -702,8 +718,20 @@
             }
         }
 
+        let startcode;
+        let endcode;
+
         function f_areaclick() {
+            startcode="";
             v_startname.innerHTML = event.target.innerHTML;
+            for(let i=0;i<v_allarea.length;i++){
+                if(v_startname.innerHTML == v_allarea[i]["nodename"]){
+                    startcode = v_allarea[i]["nodeid"];
+                }
+            }
+            console.log(startcode);
+            
+
             if (v_drop1.style.display === "none") {
                 v_drop1.style.display = "block";
             } else {
@@ -712,6 +740,16 @@
         }
         function f_areaclick1() {
             v_endname.innerHTML = event.target.innerHTML;
+            endcode="";
+
+            v_endname.innerHTML = event.target.innerHTML;
+            for(let i=0;i<v_allarea.length;i++){
+                if(v_endname.innerHTML == v_allarea[i]["nodename"]){
+                    endcode = v_allarea[i]["nodeid"];
+                }
+            }
+            console.log(endcode);
+
             if (v_drop2.style.display === "none") {
                 v_drop2.style.display = "block";
             } else {
@@ -728,19 +766,42 @@
                     v_droparea.innerHTML += "<a onclick='f_areaclick()'>" + v_allarea[i]["nodename"] + "</a>";
                 }
             }
-        } 
-        
+        }
+
+        let v_endsearch = document.querySelector("#endsearch");
         function f_areasearch1() {
-            v_droparea.innerHTML = "";
+            v_droparea1.innerHTML = "";
             console.log(v_endsearch.value);
             for (let i = 0; i < v_allarea.length; i++) {
                 if (v_allarea[i]["nodename"].indexOf(v_endsearch.value) != -1) {
-                    v_droparea.innerHTML += "<a onclick='f_areaclick()'>" + v_allarea[i]["nodename"] + "</a>";
+                    v_droparea1.innerHTML += "<a onclick='f_areaclick1()'>" + v_allarea[i]["nodename"] + "</a>";
                 }
             }
         }
 
-        console.log(JSON.parse(localStorage.getItem("allarea")).length);
+        let t_type=document.getElementsByName("t_type");
+
+        function f_timecheck(){
+
+            var xhr = new XMLHttpRequest();
+            var url = 'http://apis.data.go.kr/1613000/TrainInfoService/getStrtpntAlocFndTrainInfo'; /*URL*/
+            var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'EiBpG0IF%2F5iWabEn0sVxpe1pxanblUPYUv4n9u66FIyB7XS4VXT43NZ%2BwC2KXZt6BW%2FdxrjLlbNvWhYmlxlLyQ%3D%3D'; /*Service Key*/
+            queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
+            queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('100'); /**/
+            queryParams += '&' + encodeURIComponent('_type') + '=' + encodeURIComponent('json'); /**/
+            queryParams += '&' + encodeURIComponent('depPlaceId') + '=' + encodeURIComponent(startcode); /**/
+            queryParams += '&' + encodeURIComponent('arrPlaceId') + '=' + encodeURIComponent(endcode); /**/
+            queryParams += '&' + encodeURIComponent('depPlandTime') + '=' + encodeURIComponent('20230403'); /**/
+            queryParams += '&' + encodeURIComponent('trainGradeCode') + '=' + encodeURIComponent('00'); /**/
+            xhr.open('GET', url + queryParams);
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4) {
+                    let v_json = JSON.parse(this.responseText);
+                    console.log(v_json);
+                }
+            };
+            xhr.send('');
+        }
     </script>
 </body>
 
