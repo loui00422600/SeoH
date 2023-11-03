@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <button onclick="f_click()">영화 호출</button>
+    <button onclick="f_click1()">배우 호출</button>
+    영화이름:<input type='text' id="searchmovie"></input>
+</body>
+
+<script>
+
+    let searchm=document.querySelector("#searchmovie");
+
+    let today = new Date();
+
+    let year = today.getFullYear(); // 년도
+    let month = today.getMonth() + 1;  // 월
+    let date = today.getDate();  // 날짜
+    let day = today.getDay();  // 요일
+
+
+
+    let releasedate = year + '-' + String(month).padStart(2, "0") + '-' + String(date).padStart(2, "0");
+
+    function f_click() {
+        f_movie();
+    }
+
+
+    function f_click1() {
+        f_searchmovie(searchm.value);
+    }
+
+    function f_movie() { // 영화 데이터 모음 api
+        const options = {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2NzlkYjcyYWI3YzI0Yjc2ODhkNDViMWRjMmYyYzU2ZiIsInN1YiI6IjY1MzcwYzFkNDA4M2IzMDBmZDNlNWU1MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zSQ6f0_Wj39y2A81f0fiBHPXleHT1CwPxZljUzi9hhA'
+            }
+        };
+
+        fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=ko-KR&primary_release_date.gte=2000-01-01&primary_release_date.lte=' + releasedate + '&sort_by=primary_release_date.desc', options)
+            .then(response => response.json())
+            .then(response => console.log(response))
+            .catch(err => console.error(err));
+    }
+
+
+
+
+
+    function f_actor() { // 해당 영화 감독,배우 정보 api
+        const options = {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2NzlkYjcyYWI3YzI0Yjc2ODhkNDViMWRjMmYyYzU2ZiIsInN1YiI6IjY1MzcwYzFkNDA4M2IzMDBmZDNlNWU1MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zSQ6f0_Wj39y2A81f0fiBHPXleHT1CwPxZljUzi9hhA'
+            }
+        };
+
+        fetch('https://api.themoviedb.org/3/movie/479718/credits?language=ko-KR', options) // movie/영화id/credits?language=ko-KR
+            .then(response => response.json())
+            .then(response => console.log(response))
+            .catch(err => console.error(err));
+    }
+
+
+    function f_image() { // 해당 영화 스틸컷, 뒷배경 이미지 api
+        const options = {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2NzlkYjcyYWI3YzI0Yjc2ODhkNDViMWRjMmYyYzU2ZiIsInN1YiI6IjY1MzcwYzFkNDA4M2IzMDBmZDNlNWU1MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zSQ6f0_Wj39y2A81f0fiBHPXleHT1CwPxZljUzi9hhA'
+            }
+        };
+
+        fetch('https://api.themoviedb.org/3/movie/479718/images', options)
+            .then(response => response.json())
+            .then(response => console.log(response))
+            .catch(err => console.error(err));
+    }
+
+
+    function f_searchmovie(searchmovie) { // 영화 정보 찾기
+        const options = {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2NzlkYjcyYWI3YzI0Yjc2ODhkNDViMWRjMmYyYzU2ZiIsInN1YiI6IjY1MzcwYzFkNDA4M2IzMDBmZDNlNWU1MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zSQ6f0_Wj39y2A81f0fiBHPXleHT1CwPxZljUzi9hhA'
+            }
+        };
+
+        fetch('https://api.themoviedb.org/3/search/movie?query='+ searchmovie +'&include_adult=false&language=ko-KR&page=1', options) // search
+            .then(response => response.json())
+            .then(response => console.log(response))
+            .catch(err => console.error(err));
+    }
+
+
+
+</script>
+
+</html>
